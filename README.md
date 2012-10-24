@@ -1,7 +1,7 @@
 multimediaApp
 =============
 
-Mulktimedia application dedicated to serve audio and video files from a dedicated server
+Multimedia application dedicated to serve audio and video files from a dedicated server
 
   --------- V-0.1 ----------
 - First deployment of the application
