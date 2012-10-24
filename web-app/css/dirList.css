@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+
+#borderDiv{
+background: #474747;
+-webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+border-radius: 20px;
+margin-left: 50px;
+margin-right: 50px;
+margin-top: 40px;
+padding-top: 20px;
+padding-bottom: 60px;
+border:5px solid #3D3D3D;
+}
