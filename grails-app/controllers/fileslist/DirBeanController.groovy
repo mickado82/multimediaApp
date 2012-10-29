@@ -1,29 +1,50 @@
 package fileslist
 
 import grails.plugins.springsecurity.Secured
+import grails.plugins.springsecurity.SpringSecurityService
 
 import org.springframework.dao.DataIntegrityViolationException
 
+import security.User
 
-@Secured(['ROLE_USER'])
+
+@Secured(['ROLE_ADMIN', 'ROLE_USER'])
 class DirBeanController {	
 	
 	def dirBeanService
+	
+	/**
+	 * Dependency injection for the springSecurityService.
+	 */
+	def springSecurityService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 	
 	def download(){
+
+		/*
+		Cookie cookie = new Cookie("fileDownload","true")
+		cookie.setPath("/")
+		response.addCookie(cookie)
+		*/
+		println "Download request received for id ${params.id}"
 		List dirBeanInstanceList = servletContext["dirBeanInstanceList"]
 		def theDir = dirBeanInstanceList.get(params.id.toInteger())
 		
 		
 		File theZip = new File(dirBeanService.zipDir(theDir))
 		
+		/*
 		response.setHeader("Content-Type", "application/zip;")
 		response.setHeader("Content-Disposition", "attachment; filename=\"${theZip.name}\"")
 		response.setHeader("Content-Length", "${theZip.size()}")
 		response.outputStream << theZip.bytes
+		response.outputStream.flush()
+		*/
 		
+		println "Generating download link for file ${theZip.getName()}"
+		
+		render "<A HREF='${request.getContextPath()}/resources/${theZip.getName()}' style='color:#80B3FF;'>Download</A>"
 		//redirect(action: "list")
 	}
 
@@ -32,7 +53,12 @@ class DirBeanController {
     }
 
     def list() {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+		
+		def user = springSecurityService.getPrincipal()
+		
+		println "${user.username} Accessed Dirs list"
+        
+		params.max = Math.min(params.max ? params.int('max') : 10, 100)
 		servletContext["dirBeanInstanceList"] = dirBeanService.createList()
         [dirBeanInstanceList: servletContext["dirBeanInstanceList"], dirBeanInstanceTotal: DirBean.count()]
     }

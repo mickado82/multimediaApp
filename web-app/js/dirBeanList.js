@@ -7,8 +7,36 @@ $(document).ready(function() {
 	    animOpacity     : 0.7,
 	    visibleSlices   : 10
 	});
+	
+	$("#dialogDiv").dialog({ autoOpen: false, modal: true });
+	$(".dlButton").button();
 });
 
-function downloadAlbum(name){
-	alert("Downloading album # " + name);
+
+function downloadAlbum(id){
+	
+	$("#dialogDiv").html("Application is preparing your download.<br/>Please wait...");
+	$("#dialogDiv").dialog( "option", "title", "Preparing download" );
+	
+	$("#dialogDiv").dialog("open");
+	
+	$("#dialogDiv").load("/filesList-0.2/dirBean/download?id="+id, function(response, status, xhr) {
+		var msg = "";
+		if (status == "success") {
+		    var msg = "Download ready !!";
+		  }else{
+			  var msg = "Download failed !!";
+		  }
+		$("#dialogDiv").dialog( "option", "title", msg );
+	});
+	
+	/*
+		var url = "/filesList-0.1/dirBean/download?id="+id; //g.createLink({controller: 'dirBean', action: 'download', params: {id: id}});
+		
+		$.fileDownload(url, {
+            preparingMessageHtml: "Generating the archive, please wait.<br/>(This may take a few minutes)",
+            failMessageHtml: "There was a problem generating your report, please try again."
+        });
+        return false; //this is critical to stop the click event which will trigger a normal file download!
+        */
 }

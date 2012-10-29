@@ -14,10 +14,13 @@
 		<link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
+		<link rel="stylesheet" href="${resource(dir: 'css/jquery', file: 'jquery-ui.css')}" type="text/css">
 		
 		<g:javascript src="jquery/jquery-1.8.2.js"/>
+		<g:javascript src="jquery/jquery-ui-1.9.0.js"/>
 		<g:layoutHead/>
         <r:layoutResources />
+        
 	</head>
 	<body>
 		<div id="banner" role="banner">

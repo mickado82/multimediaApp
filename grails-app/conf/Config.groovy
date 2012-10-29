@@ -63,10 +63,27 @@ grails.hibernate.cache.queries = true
 environments {
     development {
         grails.logging.jul.usebridge = true
+		//dir where temp zip are created
+		temp.dir = "D:\\workspaceg\\filesList\\web-app\\resources\\"
+		//Files rep dir
+		my.files.dir = "D:\\Zik"
+		//min free space to create the archives (in GigaBytes)
+		min.free.space = 0.5
+		
+		// root folder to check avail disk space
+		home.folder="D:\\"
     }
     production {
         grails.logging.jul.usebridge = false
         // TODO: grails.serverURL = "http://www.changeme.com"
+		//dir where temp zip are created
+		temp.dir = "/home/jserver/jboss/standalone/deployments/filesList-0.2.war/resources/"
+		//Files rep dir
+		my.files.dir = "/multimedia/audio/"
+		//min free space to create the archives (in GigaBytes)
+		min.free.space = 10
+		// root folder to check avail disk space
+		home.folder="/home/"
     }
 }
 
@@ -90,17 +107,9 @@ log4j = {
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
+	
+		//   info 'org.springframework.security'
 }
-
-//Files rep dir
-//my.files.dir = "C:/testMultimedia/extractor/input"
-my.files.dir = "/home/micka/Musique"
-
-//min free space to create the archives (in GigaBytes)
-min.free.space = 10
-
-//dir where temp zip are created
-temp.dir = "/tmp/"
 
 // Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'filesList.User'

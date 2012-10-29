@@ -12,3 +12,8 @@ padding-top: 20px;
 padding-bottom: 60px;
 border:5px solid #3D3D3D;
 }
+
+.dlButton{
+	margin-left: 10px;
+	font-size: small;
+}

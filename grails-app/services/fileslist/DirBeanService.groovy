@@ -1,5 +1,6 @@
 package fileslist
 
+import java.awt.ModalEventFilter.ApplicationModalEventFilter;
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
 
@@ -27,7 +28,9 @@ class DirBeanService {
     }
 	
 	def zipDir(dirBeanInstance){
-		def fs = new File("/home/").getFreeSpace()
+		def fs = new File(grailsApplication.config.home.folder).getFreeSpace()
+		
+		println "approx free space available on disk: ${fs/1e9} (limit = ${grailsApplication.config.min.free.space})"
 		
 		if(fs/1e9 < grailsApplication.config.min.free.space){
 			println "Not enough space available in temp dir"
@@ -40,7 +43,7 @@ class DirBeanService {
 		def zipFileFullName = grailsApplication.config.temp.dir + zipFileName
 		
 		if((new File(zipFileFullName)).exists()){
-			println "ZipFile already exixts"
+			println "ZipFile already exists"
 			return zipFileFullName
 		}
 		
