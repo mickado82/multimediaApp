@@ -73,7 +73,9 @@
 									</li>
 								</g:each>
 							</ul>
-							<img class='dirIcon' src="../images/dirIcon.png" alt="Image not available" width="128" height="128">
+							<div class='dirIcon'>
+								<img src="../images/dirIcon.png" alt="Image not available" width="128" height="128">
+							</div>
 						</div>
 					</div>
 				</g:each>

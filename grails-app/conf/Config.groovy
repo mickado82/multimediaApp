@@ -64,7 +64,7 @@ environments {
     development {
         grails.logging.jul.usebridge = true
 		//dir where temp zip are created
-		temp.dir = "D:\\workspaceg\\filesList\\web-app\\resources\\"
+		temp.dir = "D:\\workspaceg\\multimediaApp\\web-app\\resources\\"
 		//Files rep dir
 		my.files.dir = "D:\\Zik"
 		//min free space to create the archives (in GigaBytes)

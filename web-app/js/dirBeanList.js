@@ -20,7 +20,7 @@ function downloadAlbum(id){
 	
 	$("#dialogDiv").dialog("open");
 	
-	$("#dialogDiv").load("/filesList-0.2/dirBean/download?id="+id, function(response, status, xhr) {
+	$("#dialogDiv").load("/multimediaApp/dirBean/download?id="+id, function(response, status, xhr) {
 		var msg = "";
 		if (status == "success") {
 		    var msg = "Download ready !!";

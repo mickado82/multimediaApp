@@ -24,8 +24,15 @@ border:5px solid #3D3D3D;
 
 .dirIcon{
 	float: right;
-	margin-top: 80px;
-	margin-right: 80px;
+	margin-top: 10px;
+	margin-right: 20px;
+	border-radius: 17px; 
+	-moz-border-radius: 17px; 
+	-webkit-border-radius: 17px; 
+	border: 3px solid #585858;
+	background-color: rgba(194, 194, 194, 0.2);
+	padding: 5px;
+	box-shadow: 5px 5px 5px #242121;
 }
 .trackItem{
 	/*height: 30px;*/
