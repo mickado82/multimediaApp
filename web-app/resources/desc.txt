@@ -1,0 +1,1 @@
+Temp files accessed by the app gsps are stored here
