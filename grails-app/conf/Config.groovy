@@ -73,6 +73,18 @@ environments {
 		// root folder to check avail disk space
 		home.folder="D:\\"
     }
+	test {
+		grails.logging.jul.usebridge = false
+		// TODO: grails.serverURL = "http://www.changeme.com"
+		//dir where temp zip are created
+		temp.dir = "D:\\apache-tomcat-7.0.32\\multimediaApp\\multimediaApp-0.3\\resources\\"
+		//Files rep dir
+		my.files.dir = "D:\\Zik"
+		//min free space to create the archives (in GigaBytes)
+		min.free.space = 0.5
+		// root folder to check avail disk space
+		home.folder="D:\\"
+	}
     production {
         grails.logging.jul.usebridge = false
         // TODO: grails.serverURL = "http://www.changeme.com"
