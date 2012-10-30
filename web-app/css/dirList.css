@@ -17,3 +17,24 @@ border:5px solid #3D3D3D;
 	margin-left: 10px;
 	font-size: small;
 }
+
+.tracksList{
+	float: left;
+}
+
+.dirIcon{
+	float: right;
+	margin-top: 80px;
+	margin-right: 80px;
+}
+.trackItem{
+	/*height: 30px;*/
+    padding-left: 35px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+	background-image: url('../images/fileIcon.png');
+	background-size:35px 35px;
+	list-style-type: none;
+	background-repeat: no-repeat;
+	background-position: left center;
+}

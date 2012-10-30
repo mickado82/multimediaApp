@@ -56,7 +56,9 @@
 							<h3 class="folderTitle">
 								${fieldValue(bean: dirBeanInstance, field: "name")}
 							</h3>
-							<button class="dlButton" onclick="downloadAlbum(${dirBeanInstance.id})">DOWNLOAD</button>
+							<div>
+								<button class="dlButton" onclick="downloadAlbum(${dirBeanInstance.id})">DOWNLOAD</button>
+							</div>
 							<%--
 							<g:link action="download" id="${dirBeanInstance.id}"
 								disabled="${disabled}">DOWNLOAD</g:link>
@@ -64,13 +66,14 @@
 							<%-- 
 						<button onclick="<g:remoteFunction action="download" id="${dirBeanInstance.id}"/>"">Download</button>
 						--%>
-							<ul>
+							<ul class='tracksList'>
 								<g:each in="${dirBeanInstance.files}">
-									<li style='margin-left: 50px;'>
+									<li class='trackItem'>
 										${it.name}
 									</li>
 								</g:each>
 							</ul>
+							<img class='dirIcon' src="../images/dirIcon.png" alt="Image not available" width="128" height="128">
 						</div>
 					</div>
 				</g:each>
