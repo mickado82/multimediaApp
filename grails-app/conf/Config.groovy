@@ -69,7 +69,6 @@ environments {
 		my.files.dir = "D:\\Zik"
 		//min free space to create the archives (in GigaBytes)
 		min.free.space = 0.5
-		
 		// root folder to check avail disk space
 		home.folder="D:\\"
     }

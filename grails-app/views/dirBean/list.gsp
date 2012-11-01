@@ -59,13 +59,6 @@
 							<div>
 								<button class="dlButton" onclick="downloadAlbum(${dirBeanInstance.id})">DOWNLOAD</button>
 							</div>
-							<%--
-							<g:link action="download" id="${dirBeanInstance.id}"
-								disabled="${disabled}">DOWNLOAD</g:link>
-								 --%>
-							<%-- 
-						<button onclick="<g:remoteFunction action="download" id="${dirBeanInstance.id}"/>"">Download</button>
-						--%>
 							<ul class='tracksList'>
 								<g:each in="${dirBeanInstance.files}">
 									<li class='trackItem'>
@@ -73,8 +66,25 @@
 									</li>
 								</g:each>
 							</ul>
-							<div class='dirIcon'>
-								<img src="../images/dirIcon.png" alt="Image not available" width="128" height="128">
+							<div class='rotFrame'>
+								<div class='dirIcon'>
+									<div class='frontCover'>
+										<g:if test="${dirBeanInstance.frontCover != null}">
+		     								<img src="${request.getContextPath()}/resources/${fieldValue(bean: dirBeanInstance, field: "name")}/${fieldValue(bean: dirBeanInstance, field: "frontCover")}" alt="Image not available" width="128" height="128">
+										</g:if>
+										<g:else>
+		     								<img src="../images/dirIcon.png" alt="Image not available" width="128" height="128">
+										</g:else>
+									</div>
+									<div class='backCover'>
+										<g:if test="${dirBeanInstance.backCover != null}">
+		     								<img src="${request.getContextPath()}/resources/${fieldValue(bean: dirBeanInstance, field: "name")}/${fieldValue(bean: dirBeanInstance, field: "backCover")}" alt="Image not available" width="128" height="128">
+										</g:if>
+										<g:else>
+		     								<img src="../images/dirIcon.png" alt="Image not available" width="128" height="128">
+										</g:else>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

@@ -6,6 +6,8 @@ class DirBean {
 	
 	String name
 	String fullPath
+	String frontCover
+	String backCover
 	List files
 	static hasMany = [files: FileBean]
 }
