@@ -8,7 +8,7 @@ import org.springframework.dao.DataIntegrityViolationException
 import security.User
 
 
-@Secured(['ROLE_ADMIN', 'ROLE_USER'])
+/*@Secured(['ROLE_ADMIN', 'ROLE_USER'])*/
 class DirBeanController {	
 	
 	def dirBeanService
@@ -44,11 +44,13 @@ class DirBeanController {
 		
 		println "Generating download link for file ${theZip.getName()}"
 		
-		render "<A HREF='${request.getContextPath()}/resources/${theZip.getName()}' style='color:#80B3FF;'>Download</A>"
+		render "<A HREF='${request.getContextPath()}/resources/${theZip.getName()}'><button class='dlLinkBtn'>Download</button></A>"
 		//redirect(action: "list")
 	}
 
     def index() {
+		// Default dirs sort is based on name
+		params.sort = 'name'
         redirect(action: "list", params: params)
     }
 
@@ -59,7 +61,7 @@ class DirBeanController {
 		println "${user.username} Accessed Dirs list"
         
 		params.max = Math.min(params.max ? params.int('max') : 10, 100)
-		servletContext["dirBeanInstanceList"] = dirBeanService.createList()
+		servletContext["dirBeanInstanceList"] = dirBeanService.createList(params.sort)
         [dirBeanInstanceList: servletContext["dirBeanInstanceList"], dirBeanInstanceTotal: DirBean.count()]
     }
 
