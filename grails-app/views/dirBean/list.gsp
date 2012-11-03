@@ -35,30 +35,34 @@
 	</div>
 	<a href="#list-dirBean" class="skip" tabindex="-1"><g:message
 			code="default.link.skip.label" default="Skip to content&hellip;" /></a>
-	<%--
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
- --%>
- <div id="dialogDiv" title="Preparing download ..."></div>
+			
+	<div id="dialogDiv" title="Preparing download ..."></div>
+	
 	<div id="borderDiv">
+		
+		<a href="<g:createLink action="list" params="[sort: 'newest']"/>"><button id='orderNewestBtn' class="orderButton">Last added first</button></a>
+		<a href="<g:createLink action="list" params="[sort: 'name']"/>"><button id='orderByNameBtn' class="orderButton">Sort by name</button></a>
+		
 		<div id="va-accordion" class="va-container">
+			
 			<div class="va-nav">
 				<span class="va-nav-prev">Previous</span> <span class="va-nav-next">Next</span>
 			</div>
+			
 			<div class="va-wrapper">
 				<g:each in="${dirBeanInstanceList}" status="i" var="dirBeanInstance">
 					<div class="folderSlice">
 						<div style="border-style: solid; border-width: 2px; height: 500px">
+							
 							<h3 class="folderTitle">
 								${fieldValue(bean: dirBeanInstance, field: "name")}
 							</h3>
+							
 							<div>
-								<button class="dlButton" onclick="downloadAlbum(${dirBeanInstance.id})">DOWNLOAD</button>
+								<button class="dlButton"
+									onclick="downloadAlbum(${dirBeanInstance.id})">DOWNLOAD</button>
 							</div>
+							
 							<ul class='tracksList'>
 								<g:each in="${dirBeanInstance.files}">
 									<li class='trackItem'>
@@ -66,22 +70,30 @@
 									</li>
 								</g:each>
 							</ul>
+							
 							<div class='rotFrame'>
 								<div class='dirIcon'>
-									<div class='frontCover'>
+									<div class='front face'>
 										<g:if test="${dirBeanInstance.frontCover != null}">
-		     								<img src="${request.getContextPath()}/resources/${fieldValue(bean: dirBeanInstance, field: "name")}/${fieldValue(bean: dirBeanInstance, field: "frontCover")}" alt="Image not available" width="128" height="128">
+											<img
+												src="${request.getContextPath()}/resources/${fieldValue(bean: dirBeanInstance, field: "name")}/${fieldValue(bean: dirBeanInstance, field: "frontCover")}"
+												alt="Image not available" width="128" height="128">
 										</g:if>
 										<g:else>
-		     								<img src="../images/dirIcon.png" alt="Image not available" width="128" height="128">
+											<img src="../images/dirIcon.png" alt="Image not available"
+												width="128" height="128">
 										</g:else>
 									</div>
-									<div class='backCover'>
+									
+									<div class='back face center'>
 										<g:if test="${dirBeanInstance.backCover != null}">
-		     								<img src="${request.getContextPath()}/resources/${fieldValue(bean: dirBeanInstance, field: "name")}/${fieldValue(bean: dirBeanInstance, field: "backCover")}" alt="Image not available" width="128" height="128">
+											<img class='backCover'
+												src="${request.getContextPath()}/resources/${fieldValue(bean: dirBeanInstance, field: "name")}/${fieldValue(bean: dirBeanInstance, field: "backCover")}"
+												alt="Image not available" width="128" height="128">
 										</g:if>
 										<g:else>
-		     								<img src="../images/dirIcon.png" alt="Image not available" width="128" height="128">
+											<img class='backCover' src="../images/dirIcon.png"
+												alt="Image not available" width="128" height="128">
 										</g:else>
 									</div>
 								</div>
