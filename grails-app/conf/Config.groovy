@@ -122,6 +122,15 @@ log4j = {
 		//   info 'org.springframework.security'
 }
 
+grails.plugins.springsecurity.securityConfigType = "InterceptUrlMap"
+grails.plugins.springsecurity.interceptUrlMap = [
+    '/login/**':         ['IS_AUTHENTICATED_ANONYMOUSLY'],
+    '/logout/**':         ['IS_AUTHENTICATED_ANONYMOUSLY'],
+	'/dirBean/**':         ['ROLE_USER', 'ROLE_ADMIN'],
+	'/resources/**':         ['ROLE_USER', 'ROLE_ADMIN'],
+	'/user/**':         ['ROLE_ADMIN'],
+]
+
 // Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'filesList.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'filesList.UserRole'
