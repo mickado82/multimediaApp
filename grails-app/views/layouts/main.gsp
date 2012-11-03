@@ -24,7 +24,7 @@
 	</head>
 	<body>
 		<div id="banner" role="banner">
-			<%-- <a href="http://grails.org"><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a> --%>
+			<h1>Mickabox</h1> v1.0
 		</div>
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
