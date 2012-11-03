@@ -11,14 +11,27 @@ class DirBeanService {
 
 		def grailsApplication
 
-    def createList() {	
+    def createList(String sortType) {	
 		
+		//Main list with the beans that will be displayed in the view 
 		def list = []
 		def mainDir = grailsApplication.config.my.files.dir
 		def nDir = 0
 		
-		new File(mainDir).eachDir() { theDir->
-
+		//Temp list used to sort the dirs if needed
+		def dirList = []
+		
+		new File(mainDir).eachDir { theDir ->
+			dirList.add(theDir)
+		}
+		
+		//We need to sort the list when a chronological order is required
+		if(sortType == 'newest'){
+			dirList = dirList.sort{ it.lastModified()}.reverse()
+		}
+		
+		//For each dir found, we add all the useful files (audio and covers) 
+		dirList.each { theDir->
 			def dirBean = new DirBean(name: theDir.name, fullPath: theDir.getPath())
 			dirBean.id = nDir
 			nDir++
