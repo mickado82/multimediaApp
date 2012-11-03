@@ -8,8 +8,9 @@ $(document).ready(function() {
 	    visibleSlices   : 10
 	});
 	
-	$("#dialogDiv").dialog({ autoOpen: false, modal: true });
+	$("#dialogDiv").dialog({ autoOpen: false, modal: true, resizable: false });
 	$(".dlButton").button();
+	$(".orderButton").button();
 });
 
 
@@ -28,6 +29,9 @@ function downloadAlbum(id){
 			  var msg = "Download failed !!";
 		  }
 		$("#dialogDiv").dialog( "option", "title", msg );
+		if (status == "success"){
+			$(".dlLinkBtn").button();
+		}
 	});
 	
 	/*
