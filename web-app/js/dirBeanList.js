@@ -31,6 +31,7 @@ function downloadAlbum(id){
 		$("#dialogDiv").dialog( "option", "title", msg );
 		if (status == "success"){
 			$(".dlLinkBtn").button();
+			$(".dlLinkBtn").effect('pulsate',5000);
 		}
 	});
 	
