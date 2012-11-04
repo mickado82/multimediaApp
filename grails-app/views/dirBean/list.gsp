@@ -41,8 +41,8 @@
 	<div id="borderDiv">
 		
 		<a href="<g:createLink action="list" params="[sort: 'newest']"/>"><button id='orderNewestBtn' class="orderButton">Last added first</button></a>
+		 
 		<a href="<g:createLink action="list" params="[sort: 'name']"/>"><button id='orderByNameBtn' class="orderButton">Sort by name</button></a>
-		
 		<div id="va-accordion" class="va-container">
 			
 			<div class="va-nav">

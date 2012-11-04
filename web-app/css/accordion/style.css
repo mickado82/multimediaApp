@@ -1,7 +1,7 @@
 /* Vertical Accordion Style */
 .va-container{
 	position:relative;
-	margin:40px auto 0 auto;
+	margin:60px auto 0 auto;
 }
 .va-wrapper{
 	width:100%;
@@ -67,10 +67,15 @@
 	display:none;
 	z-index:100;
 }
+
+.va-nav span.va-nav-prev{
+	top: -35px;
+}
+
 .va-nav span.va-nav-next{
 	background-image:url(../../images/accordion/next.png);
 	top:auto;
-	bottom:-70px;
+	bottom:-30px;
 }
 .va-nav span:hover{
 	opacity:1.0;
