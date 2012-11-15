@@ -6,6 +6,8 @@ import org.springframework.dao.DataIntegrityViolationException
 
 /*@Secured(['ROLE_ADMIN'])*/
 class UserController {
+	
+	def springSecurityService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -14,6 +16,10 @@ class UserController {
     }
 
     def list(Integer max) {
+		
+		def user = springSecurityService.getPrincipal()
+		
+		log.warn("${user.username} Accessed Users list !!")
         params.max = Math.min(max ?: 10, 100)
         [userInstanceList: User.list(params), userInstanceTotal: User.count()]
     }
@@ -30,7 +36,9 @@ class UserController {
         }
 		def theRole = Role.get(2)
 		UserRole.create userInstance, theRole, true
-
+		
+		log.warn("User ${userInstance.username} created !!")
+		
         flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
         redirect(action: "show", id: userInstance.id)
     }
@@ -53,7 +61,7 @@ class UserController {
             redirect(action: "list")
             return
         }
-
+		log.warn("User ${userInstance.username} edited !!")
         [userInstance: userInstance]
     }
 
@@ -97,6 +105,7 @@ class UserController {
         try {
             userInstance.delete(flush: true)
             flash.message = message(code: 'default.deleted.message', args: [message(code: 'user.label', default: 'User'), id])
+			log.warn("User ${userInstance.username} deleted !!")
             redirect(action: "list")
         }
         catch (DataIntegrityViolationException e) {

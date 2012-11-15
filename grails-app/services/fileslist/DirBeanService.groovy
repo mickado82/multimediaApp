@@ -24,7 +24,7 @@ class DirBeanService {
 		new File(mainDir).eachDir { theDir ->
 			dirList.add(theDir)
 		}
-		
+
 		//We need to sort the list when a chronological order is required
 		if(sortType == 'newest'){
 			dirList = dirList.sort{ it.lastModified()}.reverse()
@@ -40,6 +40,7 @@ class DirBeanService {
 			}
 			list.add(dirBean)
 		}
+		
 		list
     }
 	
@@ -80,10 +81,10 @@ class DirBeanService {
 	def zipDir(dirBeanInstance){
 		def fs = new File(grailsApplication.config.home.folder).getFreeSpace()
 		
-		println "approx free space available on disk: ${fs/1e9} (limit = ${grailsApplication.config.min.free.space})"
+		log.info("approx free space available on disk: ${fs/1e9} (limit = ${grailsApplication.config.min.free.space})")
 		
 		if(fs/1e9 < grailsApplication.config.min.free.space){
-			println "Not enough space available in temp dir"
+			log.info("Not enough space available in temp dir")
 			return
 		}
 		
@@ -93,11 +94,11 @@ class DirBeanService {
 		def zipFileFullName = grailsApplication.config.temp.dir + zipFileName
 		
 		if((new File(zipFileFullName)).exists()){
-			println "ZipFile already exists"
+			log.info("ZipFile already exists")
 			return zipFileFullName
 		}
 		
-		println "ZipFile does not exist : Starting zip process ..."
+		log.info("ZipFile does not exist : Starting zip process ...")
 		
 		File topDir = new File(inputDir)
 		ZipOutputStream zipOutput = new ZipOutputStream(new FileOutputStream(zipFileFullName));
@@ -110,7 +111,7 @@ class DirBeanService {
 			relative += "/"
 		  }
 		  
-		  println "zipping ${relative}"
+		  log.info("zipping ${relative}")
 		
 		  ZipEntry entry = new ZipEntry(relative)
 		  entry.time = file.lastModified()
@@ -120,8 +121,8 @@ class DirBeanService {
 		  }
 		}
 		zipOutput.close()
-		
-		println "Zip process done"
+
+		log.info("Zip process done")
 		
 		zipFileFullName
 		

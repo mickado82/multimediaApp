@@ -27,7 +27,9 @@ class DirBeanController {
 		cookie.setPath("/")
 		response.addCookie(cookie)
 		*/
-		println "Download request received for id ${params.id}"
+		
+		log.info("Download request received for id ${params.id}")
+
 		List dirBeanInstanceList = servletContext["dirBeanInstanceList"]
 		def theDir = dirBeanInstanceList.get(params.id.toInteger())
 		
@@ -42,8 +44,7 @@ class DirBeanController {
 		response.outputStream.flush()
 		*/
 		
-		println "Generating download link for file ${theZip.getName()}"
-		
+		log.info("Generating download link for file ${theZip.getName()}")
 		render "<A HREF='${request.getContextPath()}/resources/${theZip.getName()}'><button class='dlLinkBtn'>Download</button></A>"
 		//redirect(action: "list")
 	}
@@ -58,8 +59,8 @@ class DirBeanController {
 		
 		def user = springSecurityService.getPrincipal()
 		
-		println "${user.username} Accessed Dirs list"
-        
+        log.info("${user.username} Accessed Dirs list")
+		
 		params.max = Math.min(params.max ? params.int('max') : 10, 100)
 		servletContext["dirBeanInstanceList"] = dirBeanService.createList(params.sort)
         [dirBeanInstanceList: servletContext["dirBeanInstanceList"], dirBeanInstanceTotal: DirBean.count()]
