@@ -76,7 +76,7 @@
 									<div class='front face'>
 										<g:if test="${dirBeanInstance.frontCover != null}">
 											<img
-												src="${request.getContextPath()}/resources/${fieldValue(bean: dirBeanInstance, field: "name")}/${fieldValue(bean: dirBeanInstance, field: "frontCover")}"
+												src="${request.getContextPath()}/audio/${fieldValue(bean: dirBeanInstance, field: "name")}/${fieldValue(bean: dirBeanInstance, field: "frontCover")}"
 												alt="Image not available" width="128" height="128">
 										</g:if>
 										<g:else>
@@ -88,7 +88,7 @@
 									<div class='back face center'>
 										<g:if test="${dirBeanInstance.backCover != null}">
 											<img class='backCover'
-												src="${request.getContextPath()}/resources/${fieldValue(bean: dirBeanInstance, field: "name")}/${fieldValue(bean: dirBeanInstance, field: "backCover")}"
+												src="${request.getContextPath()}/audio/${fieldValue(bean: dirBeanInstance, field: "name")}/${fieldValue(bean: dirBeanInstance, field: "backCover")}"
 												alt="Image not available" width="128" height="128">
 										</g:if>
 										<g:else>
