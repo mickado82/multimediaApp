@@ -71,55 +71,109 @@ environments {
 		min.free.space = 0.5
 		// root folder to check avail disk space
 		home.folder="D:\\"
+		
+		// log4j configuration
+		log4j = {
+			
+			root {
+				warn console
+				additivity = false
+			}
+			
+			info console: ['grails.app.controllers','grails.app.services']
+			
+			error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
+				   'org.codehaus.groovy.grails.web.pages', //  GSP
+				   'org.codehaus.groovy.grails.web.sitemesh', //  layouts
+				   'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
+				   'org.codehaus.groovy.grails.web.mapping', // URL mapping
+				   'org.codehaus.groovy.grails.commons', // core / classloading
+				   'org.codehaus.groovy.grails.plugins', // plugins
+				   'org.codehaus.groovy.grails.orm.hibernate', // hibernate integration
+				   'org.springframework',
+				   'org.hibernate',
+				   'net.sf.ehcache.hibernate'
+		}
+		
     }
 	test {
 		grails.logging.jul.usebridge = false
 		// TODO: grails.serverURL = "http://www.changeme.com"
 		//dir where temp zip are created
-		temp.dir = "D:\\apache-tomcat-7.0.32\\multimediaApp\\multimediaApp-0.3\\resources\\"
+		temp.dir = "D:\\tomcat\\myApps\\multimediaApp\\multimediaApp-1.0\\resources\\"
 		//Files rep dir
 		my.files.dir = "D:\\Zik"
 		//min free space to create the archives (in GigaBytes)
 		min.free.space = 0.5
 		// root folder to check avail disk space
 		home.folder="D:\\"
+		
+		// log4j configuration
+		log4j = {
+			
+			appenders {
+				file name:'testFile',  maxFileSize: 1024, file:/D:\tomcat\myApps\multimediaApp.log/
+			}
+			
+			info additivity: false, testFile: ['grails.app.controllers','grails.app.services']
+
+			root {
+				error 'testFile'
+				additivity = false
+			}
+			
+			error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
+				   'org.codehaus.groovy.grails.web.pages', //  GSP
+				   'org.codehaus.groovy.grails.web.sitemesh', //  layouts
+				   'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
+				   'org.codehaus.groovy.grails.web.mapping', // URL mapping
+				   'org.codehaus.groovy.grails.commons', // core / classloading
+				   'org.codehaus.groovy.grails.plugins', // plugins
+				   'org.codehaus.groovy.grails.orm.hibernate', // hibernate integration
+				   'org.springframework',
+				   'org.hibernate',
+				   'net.sf.ehcache.hibernate'
+		}
 	}
     production {
         grails.logging.jul.usebridge = false
         // TODO: grails.serverURL = "http://www.changeme.com"
 		//dir where temp zip are created
-		temp.dir = "/home/jserver/jboss/standalone/deployments/filesList-0.2.war/resources/"
+		temp.dir = "/home/jserver/tomcat/myApps/multimediaApp/multimediaApp-1.0/resources/"
 		//Files rep dir
 		my.files.dir = "/multimedia/audio/"
 		//min free space to create the archives (in GigaBytes)
 		min.free.space = 10
 		// root folder to check avail disk space
 		home.folder="/home/"
+		
+		// log4j configuration
+		log4j = {
+			
+			appenders {
+				file name:'unixFile',  maxFileSize: 1024, file:'/home/jserver/tomcat/myApps/multimediaApp.log'
+			}
+			
+			info additivity: false, unixFile: ['grails.app.controllers','grails.app.services']
+
+			root {
+				error 'unixFile'
+				additivity = false
+			}
+			
+			error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
+				   'org.codehaus.groovy.grails.web.pages', //  GSP
+				   'org.codehaus.groovy.grails.web.sitemesh', //  layouts
+				   'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
+				   'org.codehaus.groovy.grails.web.mapping', // URL mapping
+				   'org.codehaus.groovy.grails.commons', // core / classloading
+				   'org.codehaus.groovy.grails.plugins', // plugins
+				   'org.codehaus.groovy.grails.orm.hibernate', // hibernate integration
+				   'org.springframework',
+				   'org.hibernate',
+				   'net.sf.ehcache.hibernate'
+		}
     }
-}
-
-// log4j configuration
-log4j = {
-    // Example of changing the log pattern for the default console
-    // appender:
-    //
-    //appenders {
-    //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-    //}
-
-    error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
-           'org.codehaus.groovy.grails.web.pages', //  GSP
-           'org.codehaus.groovy.grails.web.sitemesh', //  layouts
-           'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
-           'org.codehaus.groovy.grails.web.mapping', // URL mapping
-           'org.codehaus.groovy.grails.commons', // core / classloading
-           'org.codehaus.groovy.grails.plugins', // plugins
-           'org.codehaus.groovy.grails.orm.hibernate', // hibernate integration
-           'org.springframework',
-           'org.hibernate',
-           'net.sf.ehcache.hibernate'
-	
-		//   info 'org.springframework.security'
 }
 
 grails.plugins.springsecurity.securityConfigType = "InterceptUrlMap"
@@ -127,6 +181,7 @@ grails.plugins.springsecurity.interceptUrlMap = [
     '/login/**':         ['IS_AUTHENTICATED_ANONYMOUSLY'],
     '/logout/**':         ['IS_AUTHENTICATED_ANONYMOUSLY'],
 	'/dirBean/**':         ['ROLE_USER', 'ROLE_ADMIN'],
+	'/audio/**':         ['ROLE_USER', 'ROLE_ADMIN'],
 	'/resources/**':         ['ROLE_USER', 'ROLE_ADMIN'],
 	'/user/**':         ['ROLE_ADMIN'],
 ]
