@@ -5,6 +5,7 @@ Multimedia application dedicated to serve audio and video files from a dedicated
 
   
   --------- V-1.0 ----------
+ - Download link generation changed 
  - Logging system implemented
  - Tracks names shortened if needed for proper display
  - Files filtered by extension (mp3, flac etc ...)
