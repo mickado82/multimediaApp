@@ -60,7 +60,7 @@
 							
 							<div>
 								<button class="dlButton"
-									onclick="downloadAlbum(${dirBeanInstance.id})">DOWNLOAD</button>
+									onclick="downloadAlbum('<g:createLink action="download" id="${dirBeanInstance.id}" />')">DOWNLOAD</button>
 							</div>
 							
 							<ul class='tracksList'>

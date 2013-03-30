@@ -14,14 +14,14 @@ $(document).ready(function() {
 });
 
 
-function downloadAlbum(id){
+function downloadAlbum(url){
 	
 	$("#dialogDiv").html("Application is preparing your download.<br/>Please wait...");
 	$("#dialogDiv").dialog( "option", "title", "Preparing download" );
 	
 	$("#dialogDiv").dialog("open");
 	
-	$("#dialogDiv").load("/multimediaApp/dirBean/download?id="+id, function(response, status, xhr) {
+	$("#dialogDiv").load(url, function(response, status, xhr) {
 		var msg = "";
 		if (status == "success") {
 		    var msg = "Download ready !!";
