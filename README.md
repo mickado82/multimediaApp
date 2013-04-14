@@ -3,7 +3,8 @@ multimediaApp
 
 Multimedia application dedicated to serve audio and video files from a dedicated server
 
-  
+  --------- V-2.0 ----------
+ - WaterWheel display branch created
   --------- V-1.0 ----------
  - Logging system implemented
  - Tracks names shortened if needed for proper display
