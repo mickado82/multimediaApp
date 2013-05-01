@@ -10,6 +10,7 @@ class BootStrap {
 	  
 	  def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
 
+	  //TODO: Change password
       def myAccount = new User(username: 'mickado', enabled: true, password: '*')
       
 	  myAccount.save(flush: true)
