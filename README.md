@@ -5,7 +5,8 @@ Multimedia application dedicated to serve audio and video files from a dedicated
 
   --------- V-2.0 ----------
  - WaterWheel display branch created
-  --------- V-1.0 ----------
+ 
+ --------- V-1.0 ----------
  - Logging system implemented
  - Tracks names shortened if needed for proper display
  - Files filtered by extension (mp3, flac etc ...)
