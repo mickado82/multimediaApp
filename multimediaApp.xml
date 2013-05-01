@@ -1,0 +1,13 @@
+<!-- Changed disered values and put the file in TOMCAT_HOME/conf/catalina/localhost-->
+<!-- Name of this file will be use by tomcat as context to deploy the app -->
+
+<Context 
+	<!-- where the app will be installed -->
+  docBase="CHANGE_ME/multimediaApp/multimediaApp-2.0" 
+  path="" 
+  reloadable="true">
+	<!-- where the resources are located -->
+ <Resources className="org.apache.naming.resources.VirtualDirContext" extraResourcePaths="/audio=CHANGE_ME"/>
+<JarScanner scanAllDirectories="true" />
+</Context>
+
