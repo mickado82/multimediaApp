@@ -1,11 +1,6 @@
 package fileslist
 
-import grails.plugins.springsecurity.Secured
-import grails.plugins.springsecurity.SpringSecurityService
-
 import org.springframework.dao.DataIntegrityViolationException
-
-import security.User
 
 
 /*@Secured(['ROLE_ADMIN', 'ROLE_USER'])*/
@@ -35,6 +30,8 @@ class DirBeanController {
 		
 		
 		File theZip = new File(dirBeanService.zipDir(theDir))
+		
+		println "application directory : ${System.properties['base.dir']}"
 		
 		/*
 		response.setHeader("Content-Type", "application/zip;")
@@ -151,4 +148,5 @@ class DirBeanController {
             redirect(action: "show", id: params.id)
         }
     }
+
 }

@@ -17,6 +17,8 @@ class DirBeanService {
 		def list = []
 		def mainDir = grailsApplication.config.my.files.dir
 		def nDir = 0
+
+		log.info("Listing docs from ${mainDir}")
 		
 		//Temp list used to sort the dirs if needed
 		def dirList = []
@@ -92,6 +94,8 @@ class DirBeanService {
 		def inputDir = dirBeanInstance.fullPath
 		
 		def zipFileFullName = grailsApplication.config.temp.dir + zipFileName
+		
+		log.info("Looking for file in ${grailsApplication.config.temp.dir} ...")
 		
 		if((new File(zipFileFullName)).exists()){
 			log.info("ZipFile already exists")
