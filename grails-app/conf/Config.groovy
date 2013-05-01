@@ -67,8 +67,12 @@ environments {
 		//dir where temp zip are created
 		temp.dir = "/home/mickado/workspace/multimediaApp/web-app/resources/"
 		
-		//Files rep dir
+		//Dir where audio files are stored
 		my.files.dir = "/home/mickado/Musique"
+		
+		//Dir where video files are stored
+		my.files.videos = "/home/mickado/Vidéos"
+		
 		//min free space to create the archives (in GigaBytes)
 		min.free.space = 0.5
 		// root folder to check avail disk space
@@ -104,11 +108,11 @@ environments {
 		
 		//dir where temp zip are created
 		//TODO: Add the Tomcat apps dir for test ENV
-		temp.dir = "~/CHANGE_ME/multimediaApp/multimediaApp-2.0/resources/"
+		temp.dir = "/home/mickado/tomcat/myApps/multimediaApp/multimediaApp-2.0/resources/"
 		
 		//Files rep dir
 		//TODO: Add the dir wher the files are located (Must be a tomcat context resource to access images)
-		my.files.dir = "~/CHANGE_ME"
+		my.files.dir = "/home/mickado/Musique"
 		
 		//min free space to create the archives (in GigaBytes)
 		min.free.space = 0.5
@@ -120,7 +124,7 @@ environments {
 			
 			appenders {
 				//TODO: Add the Tomcat apps dir for test ENV
-				file name:'testFile',  maxFileSize: 1024, file:"~/CHANGE_ME/multimediaApp/multimediaApp.log"
+				file name:'testFile',  maxFileSize: 1024, file:"/home/mickado/tomcat/myApps/multimediaApp/multimediaApp.log"
 			}
 			
 			info additivity: false, testFile: ['grails.app.controllers','grails.app.services']
@@ -198,6 +202,7 @@ grails.plugins.springsecurity.interceptUrlMap = [
 	'/audio/**':         ['ROLE_USER', 'ROLE_ADMIN'],
 	'/resources/**':         ['ROLE_USER', 'ROLE_ADMIN'],
 	'/user/**':         ['ROLE_ADMIN'],
+	'/videoBean/**':         ['ROLE_ADMIN'],
 ]
 
 // Added by the Spring Security Core plugin:
