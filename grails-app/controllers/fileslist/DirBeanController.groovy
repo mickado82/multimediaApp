@@ -23,10 +23,26 @@ class DirBeanController {
 		response.addCookie(cookie)
 		*/
 		
+		//No param was given to the ajax call: should not happen
+		if(params.id == null){
+			log.error("NO DOWNLOAD CALL SHOULD BE LAUNCHED WITH id = null !!!")
+			return redirect(action: "list", params: params)
+		}
+		
 		log.info("Download request received for id ${params.id}")
 
 		List dirBeanInstanceList = servletContext["dirBeanInstanceList"]
-		def theDir = dirBeanInstanceList.get(params.id.toInteger())
+		
+		
+		try{
+			
+			def theDir = dirBeanInstanceList.get(params.id.toInteger())
+		
+		//Invalid param was given to the ajax call: should not happen
+		}catch(NumberFormatException e){
+			log.error("NO DOWNLOAD CALL SHOULD BE LAUNCHED WITH id = ${params.id} !!!")
+			return redirect(action: "list", params: params)
+		}
 		
 		
 		File theZip = new File(dirBeanService.zipDir(theDir))
