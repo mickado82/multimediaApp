@@ -63,14 +63,16 @@ grails.hibernate.cache.queries = true
 environments {
     development {
         grails.logging.jul.usebridge = true
+		
 		//dir where temp zip are created
-		temp.dir = "D:\\workspaceg\\multimediaApp\\web-app\\resources\\"
+		temp.dir = "/home/mickado/workspace/multimediaApp/web-app/resources/"
+		
 		//Files rep dir
-		my.files.dir = "D:\\Zik"
+		my.files.dir = "/home/mickado/Musique"
 		//min free space to create the archives (in GigaBytes)
 		min.free.space = 0.5
 		// root folder to check avail disk space
-		home.folder="D:\\"
+		home.folder="/"
 		
 		// log4j configuration
 		log4j = {
@@ -98,21 +100,27 @@ environments {
     }
 	test {
 		grails.logging.jul.usebridge = false
-		// TODO: grails.serverURL = "http://www.changeme.com"
+		// grails.serverURL = "http://www.changeme.com"
+		
 		//dir where temp zip are created
-		temp.dir = "D:\\tomcat\\myApps\\multimediaApp\\multimediaApp-1.0\\resources\\"
+		//TODO: Add the Tomcat apps dir for test ENV
+		temp.dir = "~/CHANGE_ME/multimediaApp/multimediaApp-2.0/resources/"
+		
 		//Files rep dir
-		my.files.dir = "D:\\Zik"
+		//TODO: Add the dir wher the files are located (Must be a tomcat context resource to access images)
+		my.files.dir = "~/CHANGE_ME"
+		
 		//min free space to create the archives (in GigaBytes)
 		min.free.space = 0.5
 		// root folder to check avail disk space
-		home.folder="D:\\"
+		home.folder="/"
 		
 		// log4j configuration
 		log4j = {
 			
 			appenders {
-				file name:'testFile',  maxFileSize: 1024, file:/D:\tomcat\myApps\multimediaApp.log/
+				//TODO: Add the Tomcat apps dir for test ENV
+				file name:'testFile',  maxFileSize: 1024, file:"~/CHANGE_ME/multimediaApp/multimediaApp.log"
 			}
 			
 			info additivity: false, testFile: ['grails.app.controllers','grails.app.services']
@@ -137,11 +145,16 @@ environments {
 	}
     production {
         grails.logging.jul.usebridge = false
-        // TODO: grails.serverURL = "http://www.changeme.com"
+        // grails.serverURL = "http://www.changeme.com"
+		
 		//dir where temp zip are created
-		temp.dir = "/home/jserver/tomcat/myApps/multimediaApp/multimediaApp-1.0/resources/"
+		//TODO: Add the Tomcat apps dir for test ENV
+		temp.dir = "~/CHANGE_ME/multimediaApp/multimediaApp-2.0/resources/"
+		
 		//Files rep dir
-		my.files.dir = "/multimedia/audio/"
+		//TODO: Add the dir wher the files are located (Must be a tomcat context resource to access images)
+		my.files.dir = "~/CHANGE_ME"
+		
 		//min free space to create the archives (in GigaBytes)
 		min.free.space = 10
 		// root folder to check avail disk space
@@ -151,7 +164,8 @@ environments {
 		log4j = {
 			
 			appenders {
-				file name:'unixFile',  maxFileSize: 1024, file:'/home/jserver/tomcat/myApps/multimediaApp.log'
+				//TODO: Add the Tomcat apps dir for test ENV
+				file name:'unixFile',  maxFileSize: 1024, file:"~/CHANGE_ME/multimediaApp/multimediaApp.log"
 			}
 			
 			info additivity: false, unixFile: ['grails.app.controllers','grails.app.services']

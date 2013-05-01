@@ -19,8 +19,9 @@ environments {
     }
     test {
         dataSource {
+			//TODO: Add the Tomcat apps dir for test ENV
             dbCreate = "update"
-            url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+            url = "jdbc:h2:file:~/CHANGE_ME/multimediaApp/db/testDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
         }
     }
     production {
