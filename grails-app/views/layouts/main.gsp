@@ -24,7 +24,7 @@
 	</head>
 	<body>
 		<div id="banner" role="banner">
-			<h1>Mickabox</h1> v1.0
+			<h1>Mickabox</h1> v2.0
 		</div>
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
