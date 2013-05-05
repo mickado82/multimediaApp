@@ -32,10 +32,10 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 						<g:if test="${videoBeanInstance.available == true}">
 							<g:if test="${videoBeanInstance?.path}">
-								<td><a href="video/${videoBeanInstance.path}/${videoBeanInstance.name}">${fieldValue(bean: videoBeanInstance, field: "name")}</a></td>
+								<td><a href="${request.getContextPath()}/video/${videoBeanInstance.path}/${videoBeanInstance.name}">${fieldValue(bean: videoBeanInstance, field: "name")}</a></td>
 							</g:if>
 							<g:else>
-     							<td><a href="video/${videoBeanInstance.name}">${fieldValue(bean: videoBeanInstance, field: "name")}</a></td>
+     							<td><a href="${request.getContextPath()}/video/${videoBeanInstance.name}">${fieldValue(bean: videoBeanInstance, field: "name")}</a></td>
 							</g:else>
 						</g:if>
 					</tr>
