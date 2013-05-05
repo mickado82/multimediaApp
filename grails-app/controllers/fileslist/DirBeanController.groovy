@@ -33,10 +33,26 @@ class DirBeanController {
 
 		List dirBeanInstanceList = servletContext["dirBeanInstanceList"]
 		
+		def theDir = null
 		
 		try{
 			
-			def theDir = dirBeanInstanceList.get(params.id.toInteger())
+			theDir = dirBeanInstanceList.get(params.id.toInteger())
+			File theZip = new File(dirBeanService.zipDir(theDir))
+			
+			println "application directory : ${System.properties['base.dir']}"
+			
+			/*
+			response.setHeader("Content-Type", "application/zip;")
+			response.setHeader("Content-Disposition", "attachment; filename=\"${theZip.name}\"")
+			response.setHeader("Content-Length", "${theZip.size()}")
+			response.outputStream << theZip.bytes
+			response.outputStream.flush()
+			 */
+			
+			log.info("Generating download link for file ${theZip.getName()}")
+			render "<A HREF='${request.getContextPath()}/resources/${theZip.getName()}'><button class='dlLinkBtn'>Download</button></A>"
+			//redirect(action: "list")
 		
 		//Invalid param was given to the ajax call: should not happen
 		}catch(NumberFormatException e){
@@ -45,21 +61,6 @@ class DirBeanController {
 		}
 		
 		
-		File theZip = new File(dirBeanService.zipDir(theDir))
-		
-		println "application directory : ${System.properties['base.dir']}"
-		
-		/*
-		response.setHeader("Content-Type", "application/zip;")
-		response.setHeader("Content-Disposition", "attachment; filename=\"${theZip.name}\"")
-		response.setHeader("Content-Length", "${theZip.size()}")
-		response.outputStream << theZip.bytes
-		response.outputStream.flush()
-		*/
-		
-		log.info("Generating download link for file ${theZip.getName()}")
-		render "<A HREF='${request.getContextPath()}/resources/${theZip.getName()}'><button class='dlLinkBtn'>Download</button></A>"
-		//redirect(action: "list")
 	}
 
     def index() {
