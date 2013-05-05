@@ -114,6 +114,9 @@ environments {
 		//TODO: Add the dir wher the files are located (Must be a tomcat context resource to access images)
 		my.files.dir = "/home/mickado/Musique"
 		
+		//Dir where video files are stored
+		my.files.videos = "/home/mickado/Vidéos"
+		
 		//min free space to create the archives (in GigaBytes)
 		min.free.space = 0.5
 		// root folder to check avail disk space
