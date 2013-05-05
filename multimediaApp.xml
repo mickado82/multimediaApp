@@ -8,6 +8,7 @@
   reloadable="true">
 	<!-- where the resources are located -->
  <Resources className="org.apache.naming.resources.VirtualDirContext" extraResourcePaths="/audio=CHANGE_ME"/>
+ <Resources className="org.apache.naming.resources.VirtualDirContext" extraResourcePaths="/video=CHANGE_ME"/>
 <JarScanner scanAllDirectories="true" />
 </Context>
 
