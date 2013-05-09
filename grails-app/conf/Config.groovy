@@ -201,11 +201,11 @@ grails.plugins.springsecurity.securityConfigType = "InterceptUrlMap"
 grails.plugins.springsecurity.interceptUrlMap = [
     '/login/**':         ['IS_AUTHENTICATED_ANONYMOUSLY'],
     '/logout/**':         ['IS_AUTHENTICATED_ANONYMOUSLY'],
-	'/videoBean/browse':   ['ROLE_USER', 'ROLE_ADMIN'],
 	'/videoBean':   ['ROLE_USER', 'ROLE_ADMIN'],
+	'/videoBean/browse':   ['ROLE_USER', 'ROLE_ADMIN'],
+	'/dirBean':   ['ROLE_USER', 'ROLE_ADMIN'],
 	'/dirBean/list':   ['ROLE_USER', 'ROLE_ADMIN'],
 	'/dirBean/download/**':   ['ROLE_USER', 'ROLE_ADMIN'],
-	'/dirBean/index':   ['ROLE_USER', 'ROLE_ADMIN'],
 	'/audio/**':         ['ROLE_USER', 'ROLE_ADMIN'],
 	'/video/**':         ['ROLE_USER', 'ROLE_ADMIN'],
 	'/resources/**':         ['ROLE_USER', 'ROLE_ADMIN'],
