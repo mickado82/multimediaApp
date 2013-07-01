@@ -10,6 +10,11 @@ class VideoBeanController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 	
 	def videoBeanService
+	
+	/**
+	 * Dependency injection for the springSecurityService.
+	 */
+	def springSecurityService
 
     def index() {
         redirect(action: "browse", params: params)
@@ -35,6 +40,11 @@ class VideoBeanController {
 	 * @return
 	 */
 	def browse(Integer max) {
+		
+		def user = springSecurityService.getPrincipal()
+		
+		log.info("${user.username} Accessed Videos list")
+		
 		params.max = Math.min(max ?: 10, 100)
 		
 		[videoBeanInstanceList: videoBeanService.filteredVideoPagedResultList(params), videoBeanInstanceTotal: VideoBean.count()]
