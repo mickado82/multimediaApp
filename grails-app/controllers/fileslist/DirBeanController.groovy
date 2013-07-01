@@ -1,5 +1,7 @@
 package fileslist
 
+import grails.converters.JSON
+
 import org.springframework.dao.DataIntegrityViolationException
 
 
@@ -16,12 +18,6 @@ class DirBeanController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 	
 	def download(){
-
-		/*
-		Cookie cookie = new Cookie("fileDownload","true")
-		cookie.setPath("/")
-		response.addCookie(cookie)
-		*/
 		
 		//No param was given to the ajax call: should not happen
 		if(params.id == null){
@@ -41,14 +37,6 @@ class DirBeanController {
 			File theZip = new File(dirBeanService.zipDir(theDir))
 			
 			println "application directory : ${System.properties['base.dir']}"
-			
-			/*
-			response.setHeader("Content-Type", "application/zip;")
-			response.setHeader("Content-Disposition", "attachment; filename=\"${theZip.name}\"")
-			response.setHeader("Content-Length", "${theZip.size()}")
-			response.outputStream << theZip.bytes
-			response.outputStream.flush()
-			 */
 			
 			log.info("Generating download link for file ${theZip.getName()}")
 			render "<A HREF='${request.getContextPath()}/resources/${theZip.getName()}'><button class='dlLinkBtn'>Download</button></A>"
@@ -75,10 +63,26 @@ class DirBeanController {
 		
         log.info("${user.username} Accessed Dirs list")
 		
-		params.max = Math.min(params.max ? params.int('max') : 10, 100)
-		servletContext["dirBeanInstanceList"] = dirBeanService.createList(params.sort)
-        [dirBeanInstanceList: servletContext["dirBeanInstanceList"], dirBeanInstanceTotal: DirBean.count()]
     }
+	
+	def queryList(){
+		
+		def list = dirBeanService.createList(params.sort)
+			
+		def converter = new JSON() 
+		
+		def builder = new groovy.json.JsonBuilder()
+		
+		def jsonList = builder(list.collect{ album ->
+			[name : album.name,
+			 cover : album.frontCover,
+			songs:album.files.collect{song ->
+				name : song.name
+				}]
+			})
+			
+		render jsonList as JSON
+	}
 
     def create() {
         [dirBeanInstance: new DirBean(params)]
