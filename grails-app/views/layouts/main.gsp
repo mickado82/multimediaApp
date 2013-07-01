@@ -12,9 +12,13 @@
 		<link rel="shortcut icon" href="${resource(dir: 'images', file: 'multimedia-icon.ico')}" type="image/x-icon">
 		<link rel="apple-touch-icon" href="${resource(dir: 'images', file: 'apple-touch-icon.png')}">
 		<link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
+		
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
 		<link rel="stylesheet" href="${resource(dir: 'css/jquery', file: 'jquery-ui.css')}" type="text/css">
+		<link rel="stylesheet" href="${resource(dir: 'css', file: 'lessgrid.css')}" type="text/css">
+		
+		<link href='http://fonts.googleapis.com/css?family=Leckerli+One' rel='stylesheet' type='text/css'>
 		
 		<g:javascript src="jquery/jquery-1.8.2.js"/>
 		<g:javascript src="jquery/jquery-ui-1.9.0.js"/>
@@ -22,14 +26,48 @@
         <r:layoutResources />
         
 	</head>
+	
 	<body>
-		<div id="banner" role="banner">
-			<h1>Mickabox</h1> v2.0
+	
+	<div id="banner" role="banner">
+		<div class="wrapper">
+
+			<div href="index.html" id="logo">
+				Mickabox
+			</div>
+
+			<nav>
+				<ul id="nav" class="sf-menu">
+					<li class="current-menu-item"><a href="index.html">home<span
+							class="subheader">welcome</span></a></li>
+					<li><a href="blog.html">blog<span class="subheader">read
+								me</span></a></li>
+					<li><a href="page.html">about<span class="subheader">great
+								features</span></a>
+					<li><a href="portfolio.html">portfolio<span
+							class="subheader">recent work</span></a></li>
+					<li><a href="contact.html">contact<span class="subheader">get
+								in touch</span></a></li>
+					<li><a
+						href="http://luiszuno.com/blog/downloads/modus-html-template">Grab
+							it!<span class="subheader">Download it For Free</span>
+					</a></li>
+
+				</ul>
+			</nav>
+
+			<div class="clearfix"></div>
+
 		</div>
-		<g:layoutBody/>
-		<div class="footer" role="contentinfo"></div>
-		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
-		<g:javascript library="application"/>
+	</div>
+
+	<g:layoutBody />
+	<div class="footer" role="contentinfo">
+		<div class="wrapper">
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<g:javascript library="application"/>
         <r:layoutResources />
 	</body>
 </html>
