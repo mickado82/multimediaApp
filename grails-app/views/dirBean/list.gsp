@@ -15,6 +15,8 @@
 	href="${resource(dir: 'css', file: 'spinner.css')}" type="text/css">
 <link rel="stylesheet"
 	href="http://fonts.googleapis.com/css?family=Allan:700" type="text/css">
+	
+<link href='http://fonts.googleapis.com/css?family=Chivo:900italic,400' rel='stylesheet' type='text/css'>
 
 <g:javascript src="jquery.waterwheelCarousel.min.js" />
 <g:javascript src="dirBeanList.js" />
