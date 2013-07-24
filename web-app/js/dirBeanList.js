@@ -1,9 +1,10 @@
 var albumsList;
 var waterwheel;
+var fadeDelay = 300;
 
 
 $(document).ready(function() {
-	
+	$("#dl_btn").button()
 	$("#dialogDiv").dialog({ autoOpen: false, modal: true, resizable: false });
 	$(".dlButton").button();
 	$(".orderButton").button();
@@ -11,56 +12,63 @@ $(document).ready(function() {
 	//$(".loader").hide();
 	
 	/*---------- To delete !!- --------*/
-	waterwheel = $("#waterwheel").waterwheelCarousel({
-		edgeFadeEnabled : true,
-		keyboardNav : true,
-
-	});
+//	waterwheel = $("#waterwheel").waterwheelCarousel({
+//		edgeFadeEnabled : true,
+//		keyboardNav : true
+//
+//	});
 	
 	
-//	$.ajax({
-//		  url: requestAlbumsURL,
-//		  cache: false
-//		}).done(function( json ) {
-//			albumsList = json
-//			buildAlbums();
-//			$(".loader").hide();
-//		});
+	$.ajax({
+		  url: requestAlbumsURL,
+		  cache: false
+		}).done(function( json ) {
+			albumsList = json
+			buildAlbums();
+			$(".loader").hide();
+		});
 	
 });
 
 
 function buildAlbums(){
 	
-			var content = '<div id="wheel">';
+			var content = '';
 			for ( var i = 0; i < albumsList.length; i++) {
 				var album = albumsList[i];
 				if(album.cover == null){
-					content += "<img id = 'cover_" + i + "' src='../images/dirIcon.png' alt='Image 1' width='128' height='128'/>";
+					content += "<img class = 'cover' id = 'cover_" + i + "' src='../images/dirIcon.png' alt='Image 1' width='128' height='128'/>";
 				}
 				else{
-					content += "<img id = 'cover_"+ i + "' src='../audio/" + album.name + "/" + album.cover +  "' alt='Image 1' width='128' height='128'/>";					
+					content += "<img class = 'cover' id = 'cover_"+ i + "' src='../audio/" + album.name + "/" + album.cover +  "' alt='Image 1' width='128' height='128'/>";					
 				}
 			}
-			content += '</div>'
 		
-			$('#borderDiv').append(content);
+			$('#waterwheel').append(content);
 			
-			$("#wheel").waterwheelCarousel({
+			waterwheel = $("#waterwheel").waterwheelCarousel({
 				edgeFadeEnabled : true,
 				keyboardNav : true,
 				movedToCenter: function($newCenterItem) {
 				      var imageID = $newCenterItem.attr('id').split("_")[1];
 				      var album = albumsList[imageID];
-				      $('#album_title').html(album.name);
 				      
+				      //Title and songs fade out
+				      $('#headline').fadeOut(fadeDelay);
+				      $('#songsdiv').fadeOut(fadeDelay);
+				      
+				      //Build the song list
 				      var songsList = '<ul>';
 				      for (var i = 0; i < album.songs.length; i++){ songsList += '<li>' +
-				 		 album.songs[i] + '</li>'; 
+				    	  album.songs[i] + '</li>'; 
 				      }
-				 		  
-				      	songsList += '</ul>';
-				      	$('#album_songs').html(songsList);
+				      songsList += '</ul>';
+				      
+				      //Wait before new display
+				      setTimeout(function(){$('#headline').html(album.name);$('#songsdiv').html(songsList);},fadeDelay);
+				      				      	
+				      $('#headline').fadeIn(fadeDelay);
+				      $('#songsdiv').fadeIn(fadeDelay);
 				 }
 	
 		});
