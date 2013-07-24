@@ -217,7 +217,7 @@ nav a{
 	width: 34px;
 	height: 37px;
 	left: -18px;
-	margin-top: -265px;
+	margin-top: -540px;
 	display: block;
 	background: url(../images/slider-nav.png) no-repeat 0 0;
 	position: absolute;
@@ -234,7 +234,7 @@ nav a{
 	width: 34px;
 	height: 37px;
 	right: -18px;
-	margin-top: -265px;
+	margin-top: -540px;
 	display: block;
 	background: url(../images/slider-nav.png) no-repeat 0 0;
 	position: absolute;
@@ -257,28 +257,36 @@ nav a{
 	margin-bottom: 50px;
 	background: #eaeaea;
 	color: #444;
+	
 }
 
 /* features ------------------------------ */
 
 #features {
-font-family: 'Chivo', sans-serif;
-font-size: 20px;
-font-style: italic;
-font-weight: 900;
-border-bottom: 1px solid #ccc;
-color: #444;
-padding-bottom: 20px;
-margin-left: 24px;
-margin-right: 24px;
-margin-bottom: 32px;
+	font-family: 'Chivo', sans-serif;
+	font-size: 20px;
+	font-style: italic;
+	font-weight: 900;
+	border-bottom: 1px solid #ccc;
+	color: #444;
+	padding-bottom: 20px;
+	margin-left: 24px;
+	margin-right: 24px;
+	margin-bottom: 32px;
 }
 
 /* songs div -------------*/
 
 #songsdiv{
-	padding-top: 100px;
-    padding-bottom: 100px;
+	height: 700px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    font-family: 'Chivo', sans-serif;
+	font-size: 20px;
+}
+
+#songsdiv li{
+	padding: 10px;
 }
 
 /* FOOTER ------------------------------------------------------------*/
