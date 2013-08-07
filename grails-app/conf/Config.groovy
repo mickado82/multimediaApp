@@ -206,6 +206,7 @@ grails.plugins.springsecurity.interceptUrlMap = [
 	'/dirBean':   ['ROLE_USER', 'ROLE_ADMIN'],
 	'/dirBean/list':   ['ROLE_USER', 'ROLE_ADMIN'],
 	'/dirBean/download/**':   ['ROLE_USER', 'ROLE_ADMIN'],
+	'/dirBean/queryList':   ['ROLE_USER', 'ROLE_ADMIN'],
 	'/audio/**':         ['ROLE_USER', 'ROLE_ADMIN'],
 	'/video/**':         ['ROLE_USER', 'ROLE_ADMIN'],
 	'/resources/**':         ['ROLE_USER', 'ROLE_ADMIN'],
