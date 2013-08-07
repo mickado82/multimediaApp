@@ -37,7 +37,7 @@ function buildAlbums(){
 			for ( var i = 0; i < albumsList.length; i++) {
 				var album = albumsList[i];
 				if(album.cover == null){
-					content += "<img class = 'cover' id = 'cover_" + i + "' src='../images/dirIcon.png' alt='Image 1' width='128' height='128'/>";
+					content += "<img class = 'cover' id = 'cover_" + i + "' src='../images/dirIcon2.png' alt='Image 1' width='128' height='128'/>";
 				}
 				else{
 					content += "<img class = 'cover' id = 'cover_"+ i + "' src='../audio/" + album.name + "/" + album.cover +  "' alt='Image 1' width='128' height='128'/>";					
