@@ -75,7 +75,7 @@
 
 			<!-- featured -->
 			<div id="features" >
-				<div style="float:left;">Songs list</div>
+				<div style="float:left; padding-top: 20px;">Songs list</div>
 				<button id="dl_btn" style="float:right;">Download</button>
 			</div>
 			
