@@ -54,22 +54,29 @@ function buildAlbums(){
 				      $('#headline').fadeOut(fadeDelay);
 				      $('#songsdiv').fadeOut(fadeDelay);
 				      
-				      //Build the song list
-				      var songsList = '<ul>';
-				      for (var i = 0; i < album.songs.length; i++){ songsList += '<li>' +
-				    	  album.songs[i] + '</li>'; 
-				      }
-				      songsList += '</ul>';
-				      
-				      //Wait before new display
-				      setTimeout(function(){$('#headline').html(album.name);$('#songsdiv').html(songsList);},fadeDelay);
+				      buildSongList(album);
 				      				      	
 				      $('#headline').fadeIn(fadeDelay);
 				      $('#songsdiv').fadeIn(fadeDelay);
 				 }
 	
 		});
+		
+		//Display first album props just after loading
+		buildSongList(albumsList[0]);
 
+}
+
+function buildSongList(album){
+	//Build the song list
+    var songsList = '<ul>';
+    for (var i = 0; i < album.songs.length; i++){ songsList += '<li>' +
+  	  album.songs[i] + '</li>'; 
+    }
+    songsList += '</ul>';
+    
+    //Wait before new display
+    setTimeout(function(){$('#headline').html(album.name);$('#songsdiv').html(songsList);},fadeDelay);
 }
 
 
