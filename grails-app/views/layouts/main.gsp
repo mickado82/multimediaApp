@@ -38,21 +38,11 @@
 
 			<nav>
 				<ul id="nav" class="sf-menu">
-					<li class="current-menu-item"><a href="index.html">home<span
-							class="subheader">welcome</span></a></li>
-					<li><a href="blog.html">blog<span class="subheader">read
-								me</span></a></li>
-					<li><a href="page.html">about<span class="subheader">great
-								features</span></a>
-					<li><a href="portfolio.html">portfolio<span
-							class="subheader">recent work</span></a></li>
-					<li><a href="contact.html">contact<span class="subheader">get
-								in touch</span></a></li>
-					<li><a
-						href="http://luiszuno.com/blog/downloads/modus-html-template">Grab
-							it!<span class="subheader">Download it For Free</span>
-					</a></li>
-
+					<li class="current-menu-item"><a href="index.html">home<span class="subheader">welcome</span></a></li>
+					<li><a href=<g:createLink controller="dirBean" /> >Audio<span class="subheader">Albums</span></a> </li>
+					<li><a href=<g:createLink controller="videoBean" /> >Videos<span class="subheader">Available movies</span></a></li>
+					<li><a href="https://github.com/mickado82/multimediaApp" target="_blank">Fork me !!<span class="subheader">Github link</span></a></li>
+					<li><a href=<g:createLink controller="logout" /> >Logout<span class="subheader">Disconnect</span></a></li>
 				</ul>
 			</nav>
 
