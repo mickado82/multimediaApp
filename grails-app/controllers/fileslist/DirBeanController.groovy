@@ -2,6 +2,7 @@ package fileslist
 
 import grails.converters.JSON
 
+import org.codehaus.groovy.grails.web.json.JSONObject
 import org.springframework.dao.DataIntegrityViolationException
 
 
@@ -19,28 +20,29 @@ class DirBeanController {
 	
 	def download(){
 		
+		def id = params.id
+		
 		//No param was given to the ajax call: should not happen
-		if(params.id == null){
+		if(id == null){
 			log.error("NO DOWNLOAD CALL SHOULD BE LAUNCHED WITH id = null !!!")
 			return redirect(action: "list", params: params)
 		}
 		
-		log.info("Download request received for id ${params.id}")
-
-		List dirBeanInstanceList = servletContext["dirBeanInstanceList"]
+		log.info("Download request received for id ${id}")
 		
-		def theDir = null
+		def name = null
 		
 		try{
 			
-			theDir = dirBeanInstanceList.get(params.id.toInteger())
-			File theZip = new File(dirBeanService.zipDir(theDir))
+			//Here, the json list is retrieved as a linkedHashmap (Optimize ?)
+			name = session["jsonList"].get(id.toInteger()).get("name")
+			
+			File theZip = new File(dirBeanService.zipDir(name))
 			
 			println "application directory : ${System.properties['base.dir']}"
 			
 			log.info("Generating download link for file ${theZip.getName()}")
-			render "<A HREF='${request.getContextPath()}/resources/${theZip.getName()}'><button class='dlLinkBtn'>Download</button></A>"
-			//redirect(action: "list")
+			render "<A HREF='${request.getContextPath()}/resources/${theZip.getName()}'><button class='dlLinkBtn' style='font-size: 20px;'>Download</button></A>"
 		
 		//Invalid param was given to the ajax call: should not happen
 		}catch(NumberFormatException e){
@@ -80,6 +82,9 @@ class DirBeanController {
 				name : song.name
 				}]
 			})
+		
+		//Store the list in session to retrieve an album with its ID when downloading data
+		session["jsonList"] = jsonList;
 			
 		render jsonList as JSON
 	}
