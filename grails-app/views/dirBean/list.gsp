@@ -40,21 +40,6 @@
 			<!-- waterwheel -->
 			<div id="waterwheel-wrapper">
 				<div id="waterwheel">
-<%--					<img class="cover" src="../images/coversTests/1.jpg" alt="alt text" width="128" height="128"/>--%>
-<%--					<img class="cover" src="../images/coversTests/2.jpg" alt="alt text" width="128" height="128"/>--%>
-<%--					<img class="cover" src="../images/coversTests/3.jpg" alt="alt text" width="128" height="128"/>--%>
-<%--					<img class="cover" src="../images/coversTests/4.jpg" alt="alt text" width="128" height="128"/>--%>
-<%--					<img class="cover" src="../images/coversTests/1.jpg" alt="alt text" width="128" height="128"/>--%>
-<%--					<img class="cover" src="../images/coversTests/2.jpg" alt="alt text" width="128" height="128"/>--%>
-<%--					<img class="cover" src="../images/coversTests/3.jpg" alt="alt text" width="128" height="128"/>--%>
-<%--					<img class="cover" src="../images/coversTests/4.jpg" alt="alt text" width="128" height="128"/>--%>
-<%--					<img class="cover" src="../images/coversTests/2.jpg" alt="alt text" width="128" height="128"/>--%>
-<%--					<img class="cover" src="../images/coversTests/3.jpg" alt="alt text" width="128" height="128"/>--%>
-<%--					<img class="cover" src="../images/coversTests/4.jpg" alt="alt text" width="128" height="128"/>--%>
-<%--					<img class="cover" src="../images/coversTests/4.jpg" alt="alt text" width="128" height="128"/>--%>
-<%--					<img class="cover" src="../images/coversTests/2.jpg" alt="alt text" width="128" height="128"/>--%>
-<%--					<img class="cover" src="../images/coversTests/3.jpg" alt="alt text" width="128" height="128"/>--%>
-<%--					<img class="cover" src="../images/coversTests/4.jpg" alt="alt text" width="128" height="128"/>--%>
 				</div>
 				<a id="prev_btn" onclick="waterwheel.prev()"></a>
 				<a id="next_btn" onclick="waterwheel.next()"></a>
@@ -76,7 +61,7 @@
 			<!-- featured -->
 			<div id="features" >
 				<div style="float:left; padding-top: 20px;">Songs list</div>
-				<button id="dl_btn" style="float:right;">Download</button>
+				<button id="dl_btn" style="float:right;" onclick="downloadAlbum('<g:createLink action="download"/>')" >Download</button>
 			</div>
 			
 			<div id="songsdiv">
