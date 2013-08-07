@@ -87,6 +87,9 @@
 </head>
 
 <body>
+<script type="text/javascript">
+	$("#nav").hide();
+</script>
 <div id='login'>
 	<div class='inner'>
 		<div class='fheader'>Please enter login and password</div>
