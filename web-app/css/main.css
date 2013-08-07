@@ -62,6 +62,16 @@ body a:hover{
 	position: relative;
 }
 
+/* DIALOGS --------------------------------------------------------*/
+
+#dialogDiv{
+	text-align: center;
+} 
+
+.dlLinkBtn{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
 
 /* HEADER ------------------------------------------------------------*/
 
