@@ -8,6 +8,7 @@ Multimedia application dedicated to serve audio and video files from a dedicated
  - Directories are now listed using JSON format
  - User is looged in both directories
  - Not fully functionnal
+ 
   --------- V-2.0 ----------
  - WaterWheel display branch created
  
