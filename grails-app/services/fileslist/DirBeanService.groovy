@@ -80,7 +80,7 @@ class DirBeanService {
 		fileName
 	}
 	
-	def zipDir(dirBeanInstance){
+	def zipDir(name){
 		def fs = new File(grailsApplication.config.home.folder).getFreeSpace()
 		
 		log.info("approx free space available on disk: ${fs/1e9} (limit = ${grailsApplication.config.min.free.space})")
@@ -90,10 +90,7 @@ class DirBeanService {
 			return
 		}
 		
-		def zipFileName = "${dirBeanInstance.name}.zip"
-		def inputDir = dirBeanInstance.fullPath
-		
-		def zipFileFullName = grailsApplication.config.temp.dir + zipFileName
+		def zipFileFullName = grailsApplication.config.temp.dir + File.separator + name
 		
 		log.info("Looking for file in ${grailsApplication.config.temp.dir} ...")
 		
@@ -104,7 +101,7 @@ class DirBeanService {
 		
 		log.info("ZipFile does not exist : Starting zip process ...")
 		
-		File topDir = new File(inputDir)
+		File topDir = new File(grailsApplication.config.my.files.dir + File.separator + name)
 		ZipOutputStream zipOutput = new ZipOutputStream(new FileOutputStream(zipFileFullName));
 		
 		int topDirLength = topDir.absolutePath.length()
