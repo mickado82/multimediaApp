@@ -1,5 +1,12 @@
+//Global var for the albums list (as json)
 var albumsList;
+
+//Global var used to store id of the selected album
+var imageID = 0;
+
+//Global var for the waterwheel
 var waterwheel;
+
 var fadeDelay = 300;
 
 
@@ -8,16 +15,6 @@ $(document).ready(function() {
 	$("#dialogDiv").dialog({ autoOpen: false, modal: true, resizable: false });
 	$(".dlButton").button();
 	$(".orderButton").button();
-	
-	//$(".loader").hide();
-	
-	/*---------- To delete !!- --------*/
-//	waterwheel = $("#waterwheel").waterwheelCarousel({
-//		edgeFadeEnabled : true,
-//		keyboardNav : true
-//
-//	});
-	
 	
 	$.ajax({
 		  url: requestAlbumsURL,
@@ -50,7 +47,7 @@ function buildAlbums(){
 				edgeFadeEnabled : true,
 				keyboardNav : true,
 				movedToCenter: function($newCenterItem) {
-				      var imageID = $newCenterItem.attr('id').split("_")[1];
+				      imageID = $newCenterItem.attr('id').split("_")[1];
 				      var album = albumsList[imageID];
 				      
 				      //Title and songs fade out
@@ -83,12 +80,13 @@ function downloadAlbum(url){
 	
 	$("#dialogDiv").dialog("open");
 	
-	$("#dialogDiv").load(url, function(response, status, xhr) {
+	$("#dialogDiv").load(url + "?id=" + imageID, function(response, status, xhr) {
 		var msg = "";
 		if (status == "success") {
 		    var msg = "Download ready !!";
 		  }else{
 			  var msg = "Download failed !!";
+			  $("#dialogDiv").html("AARRGGHHH... Something went wrong !!");
 		  }
 		$("#dialogDiv").dialog( "option", "title", msg );
 		if (status == "success"){
