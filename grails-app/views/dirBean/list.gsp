@@ -23,7 +23,7 @@
 
 <script type="text/javascript">
 	//We need to take URL from the GSP as it wouldn't be processed in the js file 
-	requestAlbumsURL = "${createLink(action: 'queryList')}"
+	requestAlbumsURL = "${createLink(action: 'queryList')}";
 </script>
 
 </head>
