@@ -7,7 +7,10 @@ import java.util.zip.ZipOutputStream
 class DirBeanService {
 
 	//Max file name length : Cosmetics to disp properly names in GSP
-	static final int MAX_NAME_LENGTH = 60
+	static final int MAX_FILE_LENGTH = 60
+	
+	//Max directory name length : Cosmetics to disp properly names in GSP
+	static final int MAX_DIR_LENGTH = 40
 
 		def grailsApplication
 
@@ -33,8 +36,12 @@ class DirBeanService {
 		}
 		
 		//For each dir found, we add all the useful files (audio and covers) 
-		dirList.each { theDir->
-			def dirBean = new DirBean(name: theDir.name, fullPath: theDir.getPath())
+		dirList.each { theDir ->
+			def dirBeanName = theDir.name;
+			
+			dirBeanName = formatName(dirBeanName, MAX_DIR_LENGTH)
+			
+			def dirBean = new DirBean(name: dirBeanName, fullPath: theDir.getPath())
 			dirBean.id = nDir
 			nDir++
 			theDir.eachFile(){theFile -> 
@@ -51,8 +58,8 @@ class DirBeanService {
 		//Select audio file and add them to the files list
 		if(fileName ==~ /(?i).+\.(mp3|mp4|wmv|m4a|flac)/){
 			
-			if(fileName.length() > MAX_NAME_LENGTH)
-				fileName = formatName(fileName)
+			
+			fileName = formatName(fileName, MAX_FILE_LENGTH)
 			
 			dirBean.addToFiles(new FileBean(name: fileName, size: theFile.size()))
 			
@@ -71,13 +78,22 @@ class DirBeanService {
 	/**
 	 * Cut a file name so it can be properly displayed in a GSP
 	 * @param fileName the file name
-	 * @return the filename with max 70 chars incl file ext
+	 * @return the filename with max nChars chars incl file ext
 	 */
-	def formatName(String fileName){
-		def fileExt = fileName.substring(fileName.lastIndexOf('.'))
-		fileName = fileName.substring(0, MAX_NAME_LENGTH - 6)
-		fileName = fileName + '...' + fileExt
-		fileName
+	def formatName(String name, nChars){
+		if(name.length() <= nChars)
+			return name
+		
+			
+		def fileExt = ''
+		
+		def extIndex = 	name.lastIndexOf('.')
+		if(extIndex != -1)
+			fileExt = name.substring(extIndex)
+		
+		name = name.substring(0, nChars - 6)
+		name = name + '...' + fileExt
+		name
 	}
 	
 	def zipDir(name){
