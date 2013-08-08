@@ -3,6 +3,7 @@ package videoslist
 class VideoBean {
 
     static constraints = {
+		name blank: false
 		path nullable: true
     }
 	
