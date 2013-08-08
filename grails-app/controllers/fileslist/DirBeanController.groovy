@@ -6,7 +6,6 @@ import org.codehaus.groovy.grails.web.json.JSONObject
 import org.springframework.dao.DataIntegrityViolationException
 
 
-/*@Secured(['ROLE_ADMIN', 'ROLE_USER'])*/
 class DirBeanController {	
 	
 	def dirBeanService
