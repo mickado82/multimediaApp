@@ -178,6 +178,72 @@ th:hover, tr:hover {
 	margin: 30px auto;
 }
 
+/* VIDEO BEANS FORMS (CREATE AND SHOW) --------------------------*/
+
+#create-videoBean, #show-videoBean {
+	max-width: 400px;
+	min-height: 300px;
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 250px;
+	background-color: #EFEFEF;
+	border-style:solid;
+	border-width:1px;
+	border-color: (173, 173, 173);
+}
+
+#create-videoBean .fieldcontain{
+	width:50%;
+	margin: auto;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#create-videoBean .form{
+	margin-top: 50px;
+}
+
+#savebtn{
+	margin-top: 30px;
+}
+
+
+#create-videoBean input{
+	float: right;
+}
+
+
+#create-videoBean h1, #show-videoBean h1  {
+	background-color: rgb(255,255,255);
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+#savebtndiv {
+	width: 90px;
+	margin: 10px auto;
+}
+
+#deletebtndiv{
+	text-align: center; 
+	margin-top: 30px; 
+	margin-bottom: 30px;
+}
+
+#show-videoBean ul {
+	list-style-type: none;
+	font-size: 20px;
+	text-align: center;
+	margin-top: 40px;
+}
+
+#show-videoBean li {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
 /* PAGINATION ----------------------------------------------------*/
 
 .pagination {
