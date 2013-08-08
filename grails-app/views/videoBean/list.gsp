@@ -6,15 +6,17 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'videoBean.label', default: 'VideoBean')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
+		
+		<script>
+		  $(function() {
+		    $( "#addbtn" ).button();
+		  });
+  		</script>
+  
 	</head>
 	<body>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
 		<div id="list-videoBean" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+			<h1>REFERENCED MEDIAS</h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -51,7 +53,10 @@
 					</tr>
 				</g:each>
 				</tbody>
-			</table>
+			</table>	
+			<div id="addbtndiv">	
+				<g:link action="create"> <button id="addbtn">ADD VIDEO</button> </g:link>
+			</div>
 			<div class="pagination">
 				<g:paginate total="${videoBeanInstanceTotal}" />
 			</div>

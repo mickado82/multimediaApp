@@ -42,7 +42,6 @@ body p{
 body a{
 	text-decoration: none;
 	color: #444;
-	
 	-webkit-transition: color 0.3s ease;
 	-moz-transition: color 0.3s ease;
 	-o-transition: color 0.3s ease;
@@ -62,7 +61,25 @@ body a:hover{
 	position: relative;
 }
 
-/* TABLES ---------------------------------------------------------*/
+
+/* TABLES AND LIST PAGES ------------------------------------------------------*/
+
+#list-videoBean{
+	max-width: 960px;
+	min-height: 700px;
+	margin: 100px auto;
+	background-color: #EFEFEF;
+	border-style:solid;
+	border-width:1px;
+	border-color: (173, 173, 173);
+}
+
+#list-videoBean h1{
+	background-color:rgb(255,255,255);
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+}
 
 table {
 	border-top: 1px solid #DFDFDF;
@@ -90,6 +107,16 @@ td, th {
 	vertical-align: top;
 }
 
+td{
+	font-size: 16px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+td a{
+	text-decoration:underline;
+}
+
 th {
 	background-color: #efefef;
 	background-image: -moz-linear-gradient(top, #ffffff, #eaeaea);
@@ -100,6 +127,7 @@ th {
 	font-weight: bold;
 	line-height: 1.7em;
 	padding: 0.2em 0.6em;
+	font-size: 18px;
 }
 
 thead th {
@@ -143,6 +171,11 @@ th.desc a {
 
 th:hover, tr:hover {
 	background: #E1F2B6;
+}
+
+#addbtndiv{
+	width:120px;
+	margin: 30px auto;
 }
 
 /* PAGINATION ----------------------------------------------------*/
