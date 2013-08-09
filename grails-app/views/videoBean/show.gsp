@@ -10,6 +10,7 @@
 		<script>
 		  $(function() {
 		    $( "#deletebtn" ).button();
+		    $( "#createvideobtn > a >button").button();
 		  });
   		</script>
 	</head>
@@ -53,10 +54,13 @@
 				<fieldset class="buttons">
 					<g:hiddenField name="id" value="${videoBeanInstance?.id}" />
 					<div id="deletebtndiv">
-						<input id="deletebtn" type="submit" value="DELETE"/>
+						<input id="deletebtn" type="submit" value="DELETE" onclick="return confirm('Are you sure???')"/>
 					</div>
 				</fieldset>
 			</g:form>
+			<div id="createvideobtn" style="text-align: center; padding: 20px;">
+				<a href=<g:createLink action="create" /> ><button >CREATE NEW</button></a>
+			</div>
 		</div>
 	</body>
 </html>

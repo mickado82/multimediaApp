@@ -21,7 +21,7 @@
 <body>
 	
 	<div id="list-user" class="content scaffold-list" role="main" >
-		<h1 style="margin: 30px">USERS</h1>
+		<h1>USERS</h1>
 		<g:if test="${flash.message}">
 			<div class="message" role="status">
 				${flash.message}

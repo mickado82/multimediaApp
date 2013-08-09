@@ -89,6 +89,10 @@
 <body>
 <script type="text/javascript">
 	$("#nav").hide();
+	$(document).ready(function() {
+		$( "#submit" ).button();
+		});
+	
 </script>
 <div id='login'>
 	<div class='inner'>

@@ -19,6 +19,7 @@
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
 		
 		<link href='http://fonts.googleapis.com/css?family=Leckerli+One' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Bowlby+One+SC' rel='stylesheet' type='text/css'>
 		
 		<g:javascript src="jquery/jquery-1.8.2.js"/>
 		<g:javascript src="jquery/jquery-ui-1.9.0.js"/>
@@ -40,7 +41,11 @@
 				<ul id="nav" class="sf-menu">
 					<li class="current-menu-item"><a href="index.html">home<span class="subheader">welcome</span></a></li>
 					<li><a href=<g:createLink controller="dirBean" /> >Audio<span class="subheader">Albums</span></a> </li>
-					<li><a href=<g:createLink controller="videoBean" /> >Videos<span class="subheader">Available movies</span></a></li>
+					<li><a href=<g:createLink controller="videoBean" action="browse"/> >Videos<span class="subheader">Available movies</span></a></li>
+					<sec:ifAllGranted roles="ROLE_ADMIN">
+						<li><a href=<g:createLink controller="videoBean" action="list"/> >Add video<span class="subheader">Admin action</span></a></li>
+						<li><a href=<g:createLink controller="user" /> >Add user<span class="subheader">Admin action</span></a></li>
+					</sec:ifAllGranted>
 					<li><a href="https://github.com/mickado82/multimediaApp" target="_blank">Fork me !!<span class="subheader">Github link</span></a></li>
 					<li><a href=<g:createLink controller="logout" /> >Logout<span class="subheader">Disconnect</span></a></li>
 				</ul>
@@ -50,7 +55,13 @@
 
 		</div>
 	</div>
-
+	
+		<sec:ifLoggedIn>
+			<div id="usernamediv">
+				Welcome Back <sec:username/>! ;-)
+			</div>
+		</sec:ifLoggedIn>
+	
 	<g:layoutBody />
 	<div class="footer" role="contentinfo">
 		<div class="wrapper">

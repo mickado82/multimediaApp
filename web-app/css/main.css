@@ -27,6 +27,25 @@
     margin-right: auto;
 }
 
+#usernamediv{
+	background-color: rgba(255, 255, 255, 0.6);
+	float: left;
+	font-family: 'Bowlby One SC', cursive;
+	margin: 10px;
+	font-size: 14px;
+	color: black;
+	padding: 10px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+/* Override lessgrid config ------------------------------------------*/
+
+.wrapper {
+	width: 1000px;
+}
+
 
 /* GENERAL ---------------------------------------------------------- */
 
@@ -178,6 +197,14 @@ th:hover, tr:hover {
 	margin: 30px auto;
 }
 
+#list-user h1{
+	margin-top: 30px;
+	text-align: center;
+	background-color: white;
+	margin-top: 80px;
+	padding-top: 30px;
+}
+
 /* VIDEO BEANS FORMS (CREATE AND SHOW) --------------------------*/
 
 #create-videoBean, #show-videoBean {
@@ -229,7 +256,6 @@ th:hover, tr:hover {
 #deletebtndiv{
 	text-align: center; 
 	margin-top: 30px; 
-	margin-bottom: 30px;
 }
 
 #show-videoBean ul {
