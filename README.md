@@ -3,6 +3,8 @@ multimediaApp
 
 Multimedia application dedicated to serve audio and video files from a dedicated server
 
+ - UI improved for users, videos and audios views 
+ - Privilege management added in the views
  - More html5, CSS3 and responsive
  - Design has been taken from http://luiszuno.com/blog/downloads/modus-html-template/
  - Directories are now listed using JSON format
