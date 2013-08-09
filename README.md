@@ -1,7 +1,7 @@
 multimediaApp
 =============
 
-Multimedia application dedicated to serve audio and video files from a dedicated server
+ Multimedia application dedicated to serve audio and video files from a dedicated server
 
  - UI improved for users, videos and audios views 
  - Privilege management added in the views
