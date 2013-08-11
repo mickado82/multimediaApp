@@ -3,6 +3,10 @@ multimediaApp
 
   Multimedia application dedicated to serve audio and video files from a dedicated server
 
+ --------- V-2.5 ----------
+ - WaterWheel display now fully functionnal
+ - Version is now displayed in the main view
+ - Albums have now a name (filesystem) and a label (view)
  - UI improved for users, videos and audios views 
  - Privilege management added in the views
  - More html5, CSS3 and responsive
