@@ -39,9 +39,9 @@ class DirBeanService {
 		dirList.each { theDir ->
 			def dirBeanName = theDir.name;
 			
-			dirBeanName = formatName(dirBeanName, MAX_DIR_LENGTH)
+			def dirBeanLabel = formatName(dirBeanName, MAX_DIR_LENGTH)
 			
-			def dirBean = new DirBean(name: dirBeanName, fullPath: theDir.getPath())
+			def dirBean = new DirBean(name: dirBeanName, fullPath: theDir.getPath(), label: dirBeanLabel)
 			dirBean.id = nDir
 			nDir++
 			theDir.eachFile(){theFile -> 

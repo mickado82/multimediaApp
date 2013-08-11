@@ -76,6 +76,7 @@ class DirBeanController {
 		
 		def jsonList = builder(list.collect{ album ->
 			[name : album.name,
+			label : album.label,	
 			 cover : album.frontCover,
 			songs:album.files.collect{song ->
 				name : song.name

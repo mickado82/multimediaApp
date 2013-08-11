@@ -76,7 +76,7 @@ function buildSongList(album){
     songsList += '</ul>';
     
     //Wait before new display
-    setTimeout(function(){$('#headline').html(album.name);$('#songsdiv').html(songsList);},fadeDelay);
+    setTimeout(function(){$('#headline').html(album.label);$('#songsdiv').html(songsList);},fadeDelay);
 }
 
 
