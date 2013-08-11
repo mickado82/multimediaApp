@@ -33,9 +33,11 @@
 	<div id="banner" role="banner">
 		<div class="wrapper">
 
-			<div href="index.html" id="logo">
-				Mickabox
-			</div>
+				<div href="index.html" id="logo">
+					<span>Mickabox</span><br>
+					version <g:meta name="app.version"/> 
+				</div>
+
 
 			<nav>
 				<ul id="nav" class="sf-menu">
