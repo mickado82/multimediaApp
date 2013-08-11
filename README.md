@@ -13,7 +13,6 @@ multimediaApp
  - Design has been taken from http://luiszuno.com/blog/downloads/modus-html-template/
  - Directories are now listed using JSON format
  - User is looged in both directories
- - Not fully functionnal
  
   --------- V-2.0 ----------
  - WaterWheel display branch created
