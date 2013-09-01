@@ -3,6 +3,11 @@ multimediaApp
 
   Multimedia application dedicated to serve audio and video files from a dedicated server
 
+ --------- V-2.6 ----------
+ - NUmber of videos in list increased
+ - Videos sise is now displayed on the list
+ - 'Home' menu btn has been removed as it was useless
+
  --------- V-2.5 ----------
  - WaterWheel display now fully functionnal
  - Version is now displayed in the main view
