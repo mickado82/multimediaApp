@@ -19,6 +19,7 @@
 					<tr>
 					
 						<g:sortableColumn property="name" title="${message(code: 'videoBean.name.label', default: 'Name')}" />
+						<g:sortableColumn property="size" title="${message(code: 'videoBean.name.label', default: 'Size (GB)')}" />
 					
 					</tr>
 				</thead>
@@ -26,13 +27,14 @@
 				<g:each in="${videoBeanInstanceList}" status="i" var="videoBeanInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 						<g:if test="${videoBeanInstance.available == true}">
-							<g:if test="${videoBeanInstance?.path}">
-								<td><a href="${request.getContextPath()}/video/${videoBeanInstance.path}/${videoBeanInstance.name}">${fieldValue(bean: videoBeanInstance, field: "name")}</a></td>
-							</g:if>
-							<g:else>
-     							<td><a href="${request.getContextPath()}/video/${videoBeanInstance.name}">${fieldValue(bean: videoBeanInstance, field: "name")}</a></td>
-							</g:else>
-						</g:if>
+								<g:if test="${videoBeanInstance?.path}">
+									<td><a href="${request.getContextPath()}/video/${videoBeanInstance.path}/${videoBeanInstance.name}">${fieldValue(bean: videoBeanInstance, field: "name")}</a></td>
+								</g:if>
+								<g:else>
+	     							<td><a href="${request.getContextPath()}/video/${videoBeanInstance.name}">${fieldValue(bean: videoBeanInstance, field: "name")}</a></td>
+								</g:else>
+								<td>${fieldValue(bean: videoBeanInstance, field: "size")}</td>
+						</g:if>	
 					</tr>
 				</g:each>
 				</tbody>

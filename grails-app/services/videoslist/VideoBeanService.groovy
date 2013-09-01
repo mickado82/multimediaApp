@@ -30,8 +30,23 @@ class VideoBeanService {
 	   pagedResultList.list.each{
 		   it.available =  fileAvailable(it.name, it.path)
 
-		   if(!it.available)
+		   if(!it.available){
 			   log.warn("File ${it.name} is no longer available in dir ${it.path}")
+		   }
+		   else{
+			   
+			   Double size = 0
+			   
+			   if(it.path == null){
+				   size = (Double)new File(grailsApplication.config.my.files.videos + File.separator + it.name).size()
+				   println grailsApplication.config.my.files.videos + File.separator + it.name
+			   }
+			   else{
+				   size = (Double)new File(grailsApplication.config.my.files.videos + File.separator + it.path + File.separator + it.name).size()
+				   println grailsApplication.config.my.files.videos + File.separator + it.path + File.separator + it.name
+			   }
+			   it.size = (size/1e9).round(2)
+		   }
 	   }
 	   
 	   return pagedResultList
