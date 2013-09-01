@@ -14,10 +14,12 @@ tmp/
 local.properties
 .classpath
 .settings/
+org.eclipse.core.resources.prefs
 .loadpath
 *.class
 target
 *.zip
+*.sh~
 
 # External tool builders
 .externalToolBuilders/
