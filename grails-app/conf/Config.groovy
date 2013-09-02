@@ -65,13 +65,13 @@ environments {
         grails.logging.jul.usebridge = true
 		
 		//dir where temp zip are created
-		temp.dir = "/home/mickado/workspace/multimediaApp/web-app/resources/"
+		temp.dir = /C:\workspaces\multimediaApp_workspace\multimediaApp\web-app\resources/
 		
 		//Dir where audio files are stored
-		my.files.dir = "/home/mickado/Musique"
+		my.files.dir = /C:\testMultimediaAppli\audio/
 		
 		//Dir where video files are stored
-		my.files.videos = "/home/mickado/Vidéos"
+		my.files.videos = /C:\testMultimediaAppli\video/
 		
 		//min free space to create the archives (in GigaBytes)
 		min.free.space = 0.5
@@ -108,26 +108,26 @@ environments {
 		
 		//dir where temp zip are created
 		//TODO: Add the Tomcat apps dir for test ENV
-		temp.dir = "/home/mickado/tomcat/myApps/multimediaApp/multimediaApp-2.0/resources/"
+		temp.dir = "C:\\applications\\apache-tomcat-7.0.41\\multimediaApp\\multimediaApp-2.6\\resources\\"
 		
 		//Files rep dir
 		//TODO: Add the dir wher the files are located (Must be a tomcat context resource to access images)
-		my.files.dir = "/home/mickado/Musique"
+		my.files.dir = /C:\testMultimediaAppli\audio/
 		
 		//Dir where video files are stored
-		my.files.videos = "/home/mickado/Vidéos"
+		my.files.videos = /C:\testMultimediaAppli\video/
 		
 		//min free space to create the archives (in GigaBytes)
 		min.free.space = 0.5
 		// root folder to check avail disk space
-		home.folder="/"
+		home.folder="c:\\"
 		
 		// log4j configuration
 		log4j = {
 			
 			appenders {
 				//TODO: Add the Tomcat apps dir for test ENV
-				file name:'testFile',  maxFileSize: 1024, file:"/home/mickado/tomcat/myApps/multimediaApp/multimediaApp.log"
+				file name:'testFile',  maxFileSize: 1024, file:"C:\\applications\\apache-tomcat-7.0.41\\multimediaApp\\multimediaApp.log"
 			}
 			
 			info additivity: false, testFile: ['grails.app.controllers','grails.app.services']
@@ -161,6 +161,9 @@ environments {
 		//Files rep dir
 		//TODO: Add the dir wher the files are located (Must be a tomcat context resource to access images)
 		my.files.dir = "~/CHANGE_ME"
+		
+		//Dir where video files are stored
+		my.files.videos = "~/CHANGE_ME"
 		
 		//min free space to create the archives (in GigaBytes)
 		min.free.space = 10
