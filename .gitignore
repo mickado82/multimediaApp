@@ -20,6 +20,8 @@ org.eclipse.core.resources.prefs
 target
 *.zip
 *.sh~
+.link_to_grails_plugins/
+target-eclipse/classes
 
 # External tool builders
 .externalToolBuilders/
