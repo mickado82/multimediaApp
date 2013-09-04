@@ -1,7 +1,7 @@
 multimediaApp
 =============
 
-  Multimedia application dedicated to serve audio and video files from a dedicated server
+ Multimedia application dedicated to serve audio and video files from a dedicated server
 
  --------- V-2.6 ----------
  - Grails version updated to 2.2.4
