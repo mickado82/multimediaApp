@@ -68,7 +68,10 @@ class DirBeanController {
 	
 	def queryList(){
 		
-		def list = dirBeanService.createList(params.sort)
+		//Default sorting type is 'newest first'
+		def sortType = params.sort?:"newest"
+		
+		def list = dirBeanService.createList(sortType)
 			
 		def converter = new JSON() 
 		
