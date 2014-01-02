@@ -1,0 +1,11 @@
+Add IMDB ID for videos
+Add distinct label / filename
+Display label if defined, name if not
+Code IMDB API call (http://mymovieapi.com/)
+Allow users delete
+Style User gsps from show video
+refactor css !!
+refactor js: Extract buttons creation in js source file
+Improve management flash message
+Autocompletion ?? / Angular JS ??
+Mozilla css compatibility
