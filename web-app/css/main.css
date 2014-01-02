@@ -207,7 +207,7 @@ th:hover, tr:hover {
 
 /* VIDEO BEANS FORMS (CREATE AND SHOW) --------------------------*/
 
-#create-videoBean, #show-videoBean {
+#create-videoBean, #show-videoBean, #edit-videoBean {
 	max-width: 400px;
 	min-height: 300px;
 	margin-top: 100px;
@@ -220,42 +220,35 @@ th:hover, tr:hover {
 	border-color: (173, 173, 173);
 }
 
-#create-videoBean .fieldcontain{
+#create-videoBean .fieldcontain, #edit-videoBean .fieldcontain{
 	width:50%;
 	margin: auto;
 	padding-top: 5px;
 	padding-bottom: 5px;
 }
 
-#create-videoBean .form{
+#create-videoBean .form, #edit-videoBean .form{
 	margin-top: 50px;
 }
 
-#savebtn{
-	margin-top: 30px;
-}
 
-
-#create-videoBean input{
-	float: right;
-}
-
-
-#create-videoBean h1, #show-videoBean h1  {
+#create-videoBean h1, #show-videoBean h1, #edit-videoBean h1  {
 	background-color: rgb(255,255,255);
 	padding-top: 20px;
 	padding-bottom: 20px;
 	text-align: center;
 }
 
-#savebtndiv {
-	width: 90px;
-	margin: 10px auto;
+.buttons {
+	width: 300px;
+	margin: 0px auto;
+	margin-top: 10px;
+	text-align: center;
 }
 
-#deletebtndiv{
-	text-align: center; 
-	margin-top: 30px; 
+
+.fieldcontain input{
+	float: right;
 }
 
 #show-videoBean ul {

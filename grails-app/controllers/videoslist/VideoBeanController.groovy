@@ -78,6 +78,53 @@ class VideoBeanController {
         flash.message = message(code: 'default.created.message', args: [message(code: 'videoBean.label', default: 'VideoBean'), videoBeanInstance.id])
         redirect(action: "show", id: videoBeanInstance.id)
     }
+	
+	def edit() {
+		def videoBeanInstance = VideoBean.get(params.id)
+		if (!videoBeanInstance) {
+			flash.message = message(code: 'default.not.found.message', args: [message(code: 'dirBean.label', default: 'DirBean'), params.id])
+			redirect(action: "list")
+			return
+		}
+
+		[videoBeanInstance: videoBeanInstance]
+	}
+	
+	def update(Long id, Long version) {
+		def videoBeanInstance = VideoBean.get(id)
+		if (!videoBeanInstance) {
+			flash.message = message(code: 'default.not.found.message', args: [message(code: 'video.label', default: 'Video'), id])
+			redirect(action: "list")
+			return
+		}
+
+		if (version != null) {
+			if (videoBeanInstance.version > version) {
+				videoBeanInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
+						  [message(code: 'video.label', default: 'Video')] as Object[],
+						  "Another user has updated this Video while you were editing")
+				render(view: "edit", model: [userInstance: videoBeanInstance])
+				return
+			}
+		}
+
+		videoBeanInstance.properties = params
+
+		if (!videoBeanInstance.save(flush: true)) {
+			render(view: "edit", model: [userInstance: videoBeanInstance])
+			return
+		}
+
+		flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'Video'), videoBeanInstance.id])
+		log.info("Video ${videoBeanInstance.name} edited")
+
+		//We need to check again if video is her coz name / path may have been changed 
+		def available = videoBeanService.fileAvailable(params.name, params.path)
+		//check if video File is here and set its availability
+		videoBeanInstance.available = new Boolean(available)
+		
+		redirect(action: "show", id: videoBeanInstance.id)
+	}
 
     def show(Long id) {
         def videoBeanInstance = VideoBean.get(id)

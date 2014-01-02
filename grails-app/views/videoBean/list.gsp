@@ -15,7 +15,7 @@
   
 	</head>
 	<body>
-		<div id="list-videoBean" class="content scaffold-list" role="main">
+		<div id="list-videoBean" class="content scaffold-list" role="main" style="max-width: none">
 			<h1>REFERENCED MEDIAS</h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -28,6 +28,8 @@
 					
 						<g:sortableColumn property="path" title="${message(code: 'videoBean.path.label', default: 'Path')}" />
 						
+						<g:sortableColumn property="imdbId" title="${message(code: 'videoBean.available.label', default: 'IMDB id')}" />
+
 						<g:sortableColumn property="available" title="${message(code: 'videoBean.available.label', default: 'Available')}" />
 					
 					</tr>
@@ -36,7 +38,7 @@
 				<g:each in="${videoBeanInstanceList}" status="i" var="videoBeanInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${videoBeanInstance.id}">${fieldValue(bean: videoBeanInstance, field: "name")}</g:link></td>
+						<td><g:link action="edit" id="${videoBeanInstance.id}">${fieldValue(bean: videoBeanInstance, field: "name")}</g:link></td>
 					
 						<td>
 							<g:if test="${videoBeanInstance.path}">
@@ -48,6 +50,7 @@
 						
 						</td>
 						
+						<td>${fieldValue(bean: videoBeanInstance, field: "imdbId")}</td>
 						<td>${fieldValue(bean: videoBeanInstance, field: "available")}</td>
 					
 					</tr>

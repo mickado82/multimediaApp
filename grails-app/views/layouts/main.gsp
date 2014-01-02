@@ -44,7 +44,7 @@
 					<li class="current-menu-item"><a href=<g:createLink controller="dirBean" /> >Audio<span class="subheader">Albums</span></a> </li>
 					<li><a href=<g:createLink controller="videoBean" action="browse"/> >Videos<span class="subheader">Available movies</span></a></li>
 					<sec:ifAllGranted roles="ROLE_ADMIN">
-						<li><a href=<g:createLink controller="videoBean" action="list"/> >Add video<span class="subheader">Admin action</span></a></li>
+						<li><a href=<g:createLink controller="videoBean" action="list"/> >Edit videos<span class="subheader">Admin action</span></a></li>
 						<li><a href=<g:createLink controller="user" /> >Add user<span class="subheader">Admin action</span></a></li>
 					</sec:ifAllGranted>
 					<li><a href="https://github.com/mickado82/multimediaApp" target="_blank">Fork me !!<span class="subheader">Github link</span></a></li>

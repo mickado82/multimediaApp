@@ -4,18 +4,18 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'videoBean.label', default: 'VideoBean')}" />
-		<title><g:message code="default.create.label" args="[entityName]" /></title>
+		<title><g:message code="default.edit.label" args="[entityName]" /></title>
 		
-		<script>
-		  $(function() {
-		    $( "#savebtn" ).button();
+		<script type="text/javascript">
+		$(function() {
+		    $( "#videoEditSaveBtn, #videoEditDeleteBtn" )
+		      .button();
 		  });
-  		</script>
-  		
+		</script>
 	</head>
 	<body>
-		<div id="create-videoBean" class="content scaffold-create" role="main">
-			<h1>Create new record</h1>
+		<div id="edit-videoBean" class="content scaffold-edit" role="main">
+			<h1>Edit record</h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -26,15 +26,17 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-			<g:form action="save" >
+			
+			<g:form method="POST" action="update">
+				<g:hiddenField name="id" value="${videoBeanInstance?.id}" />
+				<g:hiddenField name="version" value="${videoBeanInstance?.version}" />
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>
-
-				<fieldset class="buttons">
-						<input id="savebtn" type="submit" value="CREATE"/>
+				<fieldset class="buttons">	
+					<input id="videoEditSaveBtn" type="submit" value="SAVE"/>
+					<g:actionSubmit id="videoEditDeleteBtn" action="delete" value="DELETE" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');"/>
 				</fieldset>
-
 			</g:form>
 		</div>
 	</body>

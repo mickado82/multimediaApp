@@ -10,7 +10,7 @@
 		<script>
 		  $(function() {
 		    $( "#deletebtn" ).button();
-		    $( "#createvideobtn > a >button").button();
+		    $( "#createBtn").button();
 		  });
   		</script>
 	</head>
@@ -39,6 +39,11 @@
 					
 				</li>
 				</g:if>
+				<g:else>
+					<li class="fieldcontain">
+						<div style="color: rgb(255,0,0);">File has not been found on server !!</div>
+					</li>
+				</g:else>
 			
 				<g:if test="${videoBeanInstance?.path}">
 				<li class="fieldcontain">
@@ -51,16 +56,12 @@
 			
 			</ul>
 			<g:form action = "delete">
+				<g:hiddenField name="id" value="${videoBeanInstance?.id}" />
 				<fieldset class="buttons">
-					<g:hiddenField name="id" value="${videoBeanInstance?.id}" />
-					<div id="deletebtndiv">
-						<input id="deletebtn" type="submit" value="DELETE" onclick="return confirm('Are you sure???')"/>
-					</div>
+					<input id="deletebtn" type="submit" value="DELETE" onclick="return confirm('Are you sure???')"/>
+					<a  href=<g:createLink action="create" /> id="createBtn">CREATE</a>
 				</fieldset>
 			</g:form>
-			<div id="createvideobtn" style="text-align: center; padding: 20px;">
-				<a href=<g:createLink action="create" /> ><button >CREATE NEW</button></a>
-			</div>
 		</div>
 	</body>
 </html>

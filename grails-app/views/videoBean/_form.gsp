@@ -26,3 +26,11 @@
 	<g:textField name="path" value="${videoBeanInstance?.path}"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: videoBeanInstance, field: 'imdbId', 'error')} ">
+	<label for="path">
+		<g:message code="videoBean.imdbId.label" default="IMDB" />
+		
+	</label>
+	<g:textField name="imdbId" value="${videoBeanInstance?.imdbId}"/>
+</div>
+
