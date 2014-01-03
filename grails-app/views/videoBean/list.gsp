@@ -22,12 +22,13 @@
 			</g:if>
 			<table>
 				<thead>
-					<tr>
-					
+					<tr>						
 						<g:sortableColumn property="name" title="${message(code: 'videoBean.name.label', default: 'Name')}" />
-					
-						<g:sortableColumn property="path" title="${message(code: 'videoBean.path.label', default: 'Path')}" />
 						
+						<g:sortableColumn property="path" title="${message(code: 'videoBean.path.label', default: 'Path')}" />
+					
+						<g:sortableColumn property="label" title="${message(code: 'videoBean.label.label', default: 'Label')}" />
+					
 						<g:sortableColumn property="imdbId" title="${message(code: 'videoBean.available.label', default: 'IMDB id')}" />
 
 						<g:sortableColumn property="available" title="${message(code: 'videoBean.available.label', default: 'Available')}" />
@@ -39,7 +40,7 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td><g:link action="edit" id="${videoBeanInstance.id}">${fieldValue(bean: videoBeanInstance, field: "name")}</g:link></td>
-					
+						
 						<td>
 							<g:if test="${videoBeanInstance.path}">
     							 ${fieldValue(bean: videoBeanInstance, field: "path")}
@@ -48,6 +49,15 @@
     							NONE
 							</g:else>
 						
+						</td>
+						
+						<td>
+							<g:if test="${videoBeanInstance.label}">
+    							 ${fieldValue(bean: videoBeanInstance, field: "label")}
+							</g:if>
+							<g:else>
+    							NONE
+							</g:else>
 						</td>
 						
 						<td>${fieldValue(bean: videoBeanInstance, field: "imdbId")}</td>

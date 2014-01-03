@@ -26,8 +26,16 @@
 	<g:textField name="path" value="${videoBeanInstance?.path}"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: videoBeanInstance, field: 'label', 'error')} ">
+	<label for="label">
+		<g:message code="videoBean.label.label" default="Label" />
+		
+	</label>
+	<g:textField name="label" value="${videoBeanInstance?.label}"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: videoBeanInstance, field: 'imdbId', 'error')} ">
-	<label for="path">
+	<label for="imdbId">
 		<g:message code="videoBean.imdbId.label" default="IMDB" />
 		
 	</label>

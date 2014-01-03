@@ -25,6 +25,9 @@ $(document).ready(function() {
 			$(".loader").hide();
 		});
 	
+	//Underline the corresponding menu item
+	$("#audioMenuItem").addClass("current-menu-item");
+	
 });
 
 

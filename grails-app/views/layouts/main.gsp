@@ -38,11 +38,11 @@
 					version <g:meta name="app.version"/> 
 				</div>
 
-
+			<!-- Main menu -->
 			<nav>
 				<ul id="nav" class="sf-menu">
-					<li class="current-menu-item"><a href=<g:createLink controller="dirBean" /> >Audio<span class="subheader">Albums</span></a> </li>
-					<li><a href=<g:createLink controller="videoBean" action="browse"/> >Videos<span class="subheader">Available movies</span></a></li>
+					<li id="audioMenuItem"><a href=<g:createLink controller="dirBean" /> >Audio<span class="subheader">Albums</span></a> </li>
+					<li id="videoMenuItem"><a href=<g:createLink controller="videoBean" action="browse"/> >Videos<span class="subheader">Available movies</span></a></li>
 					<sec:ifAllGranted roles="ROLE_ADMIN">
 						<li><a href=<g:createLink controller="videoBean" action="list"/> >Edit videos<span class="subheader">Admin action</span></a></li>
 						<li><a href=<g:createLink controller="user" /> >Add user<span class="subheader">Admin action</span></a></li>
