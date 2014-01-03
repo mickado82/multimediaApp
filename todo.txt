@@ -1,4 +1,3 @@
-Add IMDB ID for videos
 Add distinct label / filename
 Display label if defined, name if not
 Code IMDB API call (http://mymovieapi.com/)
@@ -8,4 +7,7 @@ refactor css !!
 refactor js: Extract buttons creation in js source file
 Improve management flash message
 Autocompletion ?? / Angular JS ??
-Mozilla css compatibility
+Mozilla css compliance
+Custom fonts in video section
+Clean up resources loading errors
+Fix menu highlight
