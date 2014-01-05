@@ -3,7 +3,9 @@
  */
 
 //API key needed to access DB
-var API_KEY = "bc3a04ba91c6b95b740ce136e960bbb2" //CHANGE ME
+var API_KEY = "*" //CHANGE ME
+	
+var NO_INFO = "No info available"
 
 //Object with the movie description
 var movieDesc;
@@ -90,6 +92,8 @@ function fillCastItems(response){
 		if(i != nCast - 1) movieDesc.cast += ", ";
 	}
 	
+	movieDesc.cast += "..."
+	
 	//Take the director
 	for(var i = 0; i < response.crew.length; i++){
 		
@@ -119,9 +123,12 @@ function fillGeneralItems(response){
 	movieDesc.genres = genres;
 	
 	movieDesc.release_date = response.release_date;
-	movieDesc.runtime = response.runtime;
+	movieDesc.runtime = response.runtime + " mins";
+	if(response.runtime == null) movieDesc.runtime = NO_INFO;
+	
 	movieDesc.vote_average = response.vote_average;
 	movieDesc.overview = response.overview;	
+	if(response.overview == null) movieDesc.overview = NO_INFO;
 	movieDesc.imdb_id = response.imdb_id;
 }
 
@@ -155,10 +162,10 @@ function buildMovieDesc() {
 		  + "<b>Release date: </b>" + movieDesc.release_date
 		  + "</li>"
 		  + "<li>"
-		  + "<b>Runtime: </b>" + movieDesc.runtime + " mins"
+		  + "<b>Runtime: </b>" + movieDesc.runtime
 		  + "</li>"
 		  + "<li>"
-		  + "<b>Cast: </b>" + movieDesc.cast + "..."
+		  + "<b>Cast: </b>" + movieDesc.cast
 		  + "</li>"
 		  + "<li>"
 		  + "<b>Rating: </b>" + movieDesc.vote_average
