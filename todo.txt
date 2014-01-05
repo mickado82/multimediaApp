@@ -6,13 +6,12 @@ Improve flash message management
 Autocompletion ?? / Angular JS ??
 Mozilla css compliance
 Clean up resources loading errors
-Handle no IMDB_id case / Handle no data FROM IMDB API case
 Change views titles
 Customize tracks icons 
 Allow per track download 
 Log video download
 Include resolution in description
 Handle TV (/3/tv/{id})
-Spinner / Loader during ajax calls
-Check ajax call result (200, 403, etc ...)
 Add trailers
+Improve size display (GB, MB etc ...)
+MickaRate
