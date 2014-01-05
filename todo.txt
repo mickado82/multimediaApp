@@ -1,10 +1,18 @@
-Code IMDB API call (http://mymovieapi.com/)
-Allow users delete
+Allow users deletion
 Style User gsps from show video
 refactor css !!
 refactor js: Extract buttons creation in js source file
-Improve management flash message
+Improve flash message management 
 Autocompletion ?? / Angular JS ??
 Mozilla css compliance
-Custom fonts in video section
 Clean up resources loading errors
+Handle no IMDB_id case / Handle no data FROM IMDB API case
+Change views titles
+Customize tracks icons 
+Allow per track download 
+Log video download
+Include resolution in description
+Handle TV (/3/tv/{id})
+Spinner / Loader during ajax calls
+Check ajax call result (200, 403, etc ...)
+Add trailers
