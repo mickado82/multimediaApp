@@ -6,7 +6,7 @@ class VideoBean {
 		name blank: false
 		path nullable: true
 		size nullable: true
-		imdbId nullable: true
+		tMovieDbId nullable: true
 		label nullable: true
     }
 	
@@ -19,7 +19,7 @@ class VideoBean {
 	//Is it available on the server ?
 	Boolean available
 	//ID to match data on webservice
-	String imdbId
+	String tMovieDbId
 	//Label: Display on the GSP :  More "understandable" 
 	String label
 	

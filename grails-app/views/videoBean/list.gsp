@@ -29,7 +29,7 @@
 					
 						<g:sortableColumn property="label" title="${message(code: 'videoBean.label.label', default: 'Label')}" />
 					
-						<g:sortableColumn property="imdbId" title="${message(code: 'videoBean.available.label', default: 'IMDB id')}" />
+						<g:sortableColumn property="tMovieDbId" title="${message(code: 'videoBean.available.label', default: 'MOVIE id')}" />
 
 						<g:sortableColumn property="available" title="${message(code: 'videoBean.available.label', default: 'Available')}" />
 					
@@ -60,7 +60,7 @@
 							</g:else>
 						</td>
 						
-						<td>${fieldValue(bean: videoBeanInstance, field: "imdbId")}</td>
+						<td>${fieldValue(bean: videoBeanInstance, field: "tMovieDbId")}</td>
 						<td>${fieldValue(bean: videoBeanInstance, field: "available")}</td>
 					
 					</tr>

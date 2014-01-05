@@ -34,11 +34,11 @@
 	<g:textField name="label" value="${videoBeanInstance?.label}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: videoBeanInstance, field: 'imdbId', 'error')} ">
-	<label for="imdbId">
-		<g:message code="videoBean.imdbId.label" default="IMDB" />
+<div class="fieldcontain ${hasErrors(bean: videoBeanInstance, field: 'tMovieDbId', 'error')} ">
+	<label for="tMovieDbId">
+		<g:message code="videoBean.tMovieDbId.label" default="DB id" />
 		
 	</label>
-	<g:textField name="imdbId" value="${videoBeanInstance?.imdbId}"/>
+	<g:textField name="tMovieDbId" value="${videoBeanInstance?.tMovieDbId}"/>
 </div>
 
