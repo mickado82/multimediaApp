@@ -11,6 +11,9 @@ var NO_INFO = "No info available"
 var movieDesc;
 
 $(document).ready(function() {
+	
+			//Underline the corresponding menu item
+			$("#videoMenuItem").addClass("current-menu-item");
 
 			$(".videoDlBtn").button();
 			
