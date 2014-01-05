@@ -11,6 +11,8 @@ class DirBeanService {
 	
 	//Max directory name length : Cosmetics to disp properly names in GSP
 	static final int MAX_DIR_LENGTH = 40
+	
+	static final String ZIP_EXT = ".zip"
 
 		def grailsApplication
 
@@ -106,9 +108,9 @@ class DirBeanService {
 			return
 		}
 		
-		def zipFileFullName = grailsApplication.config.temp.dir + File.separator + name
+		def zipFileFullName = grailsApplication.config.temp.dir + File.separator + name + ZIP_EXT
 		
-		log.info("Looking for file in ${grailsApplication.config.temp.dir} ...")
+		log.info("Looking for file ${name + ZIP_EXT} in ${grailsApplication.config.temp.dir} ...")
 		
 		if((new File(zipFileFullName)).exists()){
 			log.info("ZipFile already exists")
