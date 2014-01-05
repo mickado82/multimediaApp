@@ -5,14 +5,18 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'videoBean.label', default: 'VideoBean')}" />
+		<g:javascript src="videoBeanBrowse.js" />
+		<link rel="stylesheet" href="${resource(dir: 'css', file: 'videoBean.css')}" type="text/css">
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 		
-		<script>
-		$(document).ready(function() {
-			//Underline the corresponding menu item
-			$("#videoMenuItem").addClass("current-menu-item");
-			});
-		</script>
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Allan:700" type="text/css">
+		<link href='http://fonts.googleapis.com/css?family=Chivo:900italic,400' rel='stylesheet' type='text/css'>
+		
+		<style type="text/css">
+		
+		
+		
+		</style>
 		
 	</head>
 	<body>
@@ -22,41 +26,35 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<table>
-				<thead>
-					<tr>
-					
-						<g:sortableColumn property="name" title="${message(code: 'videoBean.name.label', default: 'Name')}" />
-						<g:sortableColumn property="size" title="${message(code: 'videoBean.name.label', default: 'Size (GB)')}" />
-					
-					</tr>
-				</thead>
-				<tbody>
+			
+			<div id="accordion">
 				<g:each in="${videoBeanInstanceList}" status="i" var="videoBeanInstance">
-					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-						<g:if test="${videoBeanInstance.available == true}">
-						
-								<!-- We want to display the label if any. Display the file name if no label -->
-								<g:set var="movieName" value="${videoBeanInstance?.label ?: videoBeanInstance?.name}" />
-								
+					<g:if test="${videoBeanInstance.available == true}">
+					<!-- We want to display the label if any. Display the file name if no label -->
+					<g:set var="movieName" value="${videoBeanInstance?.label ?: videoBeanInstance?.name}" />
+					 <h3 id=${videoBeanInstance.tMovieDbId}>${movieName}</h3>
+					 <div>
+						<p class = "moviDescDiv">
+						</p>
+						<p class = "movieLinkDiv">
+							<span style = "float: left;">
+								<i>Server file name: ${videoBeanInstance.name}</i>
+							</span>
+							<span style = "float: right;">
 								<!-- Test the path to build the link -->
 								<g:if test="${videoBeanInstance?.path}">
-									<td><a href="${request.getContextPath()}/video/${videoBeanInstance.path}/${videoBeanInstance.name}">${movieName}</a></td>
+									<a class = "videoDlBtn"  href="${request.getContextPath()}/video/${videoBeanInstance.path}/${videoBeanInstance.name}">Download</a>
 								</g:if>
 								<g:else>
-	     							<td><a href="${request.getContextPath()}/video/${videoBeanInstance.name}">${movieName}</a></td>
+	     							<a class = "videoDlBtn"  href="${request.getContextPath()}/video/${videoBeanInstance.name}">Download</a>
 								</g:else>
-								
-								
-								<td>${fieldValue(bean: videoBeanInstance, field: "size")}</td>
-						</g:if>	
-					</tr>
+							</span>
+					  	</p>
+					  </div>
+				  </g:if>
 				</g:each>
-				</tbody>
-			</table>
-			<div class="pagination">
-				<g:paginate total="${videoBeanInstanceTotal}" />
 			</div>
+			<!-- End of the accordion -->
 		</div>
 	</body>
 </html>
