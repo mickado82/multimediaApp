@@ -14,6 +14,7 @@ $(document).ready(function() {
 
 			$(".videoDlBtn").button();
 			
+			
 			//Initialize accordion 
 			    $( "#accordion" ).accordion({
 				    collapsible: true, 
@@ -23,11 +24,18 @@ $(document).ready(function() {
 				    activate: fillAccordionTab
 				    });
 											
+			    //Remove this class Coz I want squared corner accordion
+			    $("h3").removeClass("ui-corner-all");
 			});
 
 
 //Fill the tab with info gathered from ajax call
 function fillAccordionTab(event, ui){
+	
+	//First insert the loading spinner
+	var spinnerString = "<div class='spinner'><div class='cube1'></div><div class='cube2'></div></div>"; 
+	$(ui.newPanel).find('.moviDescDiv').html(spinnerString);
+	
 	
 	//remove info from Old panel
 	$(ui.oldPanel).find('.moviDescDiv').html("");
@@ -37,6 +45,7 @@ function fillAccordionTab(event, ui){
 		return;
 	
 	//Try to find movie infos on theMokvieDB an fill the tab with infos
+	//Ajax calls are 1s delayed to avoid overload ?
 	getInfoFromMovieDb(event, ui);
 	
 }
@@ -44,15 +53,24 @@ function fillAccordionTab(event, ui){
 function getInfoFromMovieDb( event, ui ) {
 
     var movieId = $(ui.newHeader).attr('id');
+    
+    //If there is no ID for this file
+    if(movieId.indexOf('ui-accordion-accordion-header') != -1){
+    	$(ui.newPanel).find('.moviDescDiv').html("No Information available on The Movie DataBase");
+    	return;
+    }
 	
     //Ajax call to take general info from Movie DB
-	$.ajax({
+	var generalRequest = $.ajax({
 	  type: "GET",
 	  url: "https://api.themoviedb.org/3/movie/" + movieId,
 	  data: {api_key: API_KEY},
 	  dataType: "json"
-	})
-	.done( function(response){
+	});
+	
+	//If ajax works
+	generalRequest.done( function(response){
+		
 		//Fill object with general info
 		fillGeneralItems(response);
 		
@@ -60,22 +78,37 @@ function getInfoFromMovieDb( event, ui ) {
 		getCastoFromMovieDb(movieId, ui);
 			
 	});
+	
+	//If it fails
+	generalRequest.fail( function(response){
+		
+		$(ui.newPanel).find('.moviDescDiv').html("No Information available on The Movie DataBase");
+	
+	});
+	
+	
   }
 
 function getCastoFromMovieDb(movieId, ui) {
 	
     //Ajax call to take general info from Movie DB
-	$.ajax({
+	var castRequest = $.ajax({
 	  type: "GET",
 	  url: "https://api.themoviedb.org/3/movie/" + movieId + "/credits",
 	  data: {api_key: API_KEY},
 	  dataType: "json"
-	})
-	.done( function(response){
+	});
+	
+	castRequest.done( function(response){
 		fillCastItems(response);
 		//Fill the page
 		$(ui.newPanel).find('.moviDescDiv').html(buildMovieDesc());
 	});
+	
+	castRequest.fail( function(response){
+		$(ui.newPanel).find('.moviDescDiv').html("No Information available on The Movie DataBase");
+	});
+	
   }
 
 //Fill the object with general info (first ajax call) 
@@ -124,9 +157,13 @@ function fillGeneralItems(response){
 	
 	movieDesc.release_date = response.release_date;
 	movieDesc.runtime = response.runtime + " mins";
+	if(response.runtime == '0') movieDesc.runtime = NO_INFO;
+	
 	if(response.runtime == null) movieDesc.runtime = NO_INFO;
 	
 	movieDesc.vote_average = response.vote_average;
+	if(response.vote_average == '0') movieDesc.vote_average = NO_INFO;
+	
 	movieDesc.overview = response.overview;	
 	if(response.overview == null) movieDesc.overview = NO_INFO;
 	movieDesc.imdb_id = response.imdb_id;

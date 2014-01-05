@@ -34,11 +34,13 @@
 					<g:set var="movieName" value="${videoBeanInstance?.label ?: videoBeanInstance?.name}" />
 					 <h3 id=${videoBeanInstance.tMovieDbId}>${movieName}</h3>
 					 <div>
-						<p class = "moviDescDiv">
-						</p>
+						<div class = "moviDescDiv">
+						
+						</div>
 						<p class = "movieLinkDiv">
 							<span style = "float: left;">
-								<i>Server file name: ${videoBeanInstance.name}</i>
+								<i>Server file name: ${videoBeanInstance.name}</i><br/>
+								<i>Size: ${videoBeanInstance.size} GB</i>
 							</span>
 							<span style = "float: right;">
 								<!-- Test the path to build the link -->
