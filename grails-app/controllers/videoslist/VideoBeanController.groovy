@@ -45,7 +45,7 @@ class VideoBeanController {
 		
 		log.info("${user.username} Accessed Videos list")
 		
-		params.max = max ?: 50
+		params.max = max ?: 100
 		
 		[videoBeanInstanceList: videoBeanService.filteredVideoPagedResultList(params), videoBeanInstanceTotal: VideoBean.count()]
 	}
