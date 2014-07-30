@@ -1,15 +1,19 @@
-multimediaApp
-=============
+#multimediaApp
+Multimedia application dedicated to serve audio and video files from a dedicated server
 
- Multimedia application dedicated to serve audio and video files from a dedicated server
-
- --------- V-2.6 ----------
+##Version 3.0 
+ - Grails version updated to 2.3.4
+ - Rebuild of the videos views 
+ - Movies infos are now fetched from 'The movie databse' thanks to their nice api
+ - Readme updated with better markdown
+ 
+##Version 2.6
  - Grails version updated to 2.2.4
  - Videos number in list increased
  - Videos size is now displayed on the list
  - 'Home' menu btn has been removed as it was useless
 
- --------- V-2.5 ----------
+##Version 2.5
  - WaterWheel display now fully functionnal
  - Version is now displayed in the main view
  - Albums have now a name (filesystem) and a label (view)
@@ -20,10 +24,10 @@ multimediaApp
  - Directories are now listed using JSON format
  - User is looged in both directories
  
-  --------- V-2.0 ----------
+##Version 2.0
  - WaterWheel display branch created
  
- --------- V-1.0 ----------
+##Version 1.0
  - Download link generation changed 
  - Logging system implemented
  - Tracks names shortened if needed for proper display
@@ -38,13 +42,13 @@ multimediaApp
  - Folders can now be sort by date added / name
  - UI improvements, css3 features added
    
-  --------- V-0.2 ----------
+##Version 0.2
  - Users management improved
  - Basic login log added
  - Grails version upgraded to 2.1.1
  - Minor UI improvement
   
-  --------- V-0.1 ----------
+##Version 0.1
 - First deployment of the application
 - Audio files listed and all tracks displayed in gui
 - Tracks ziped in a temp dir and Download link generated 
