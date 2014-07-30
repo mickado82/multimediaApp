@@ -59,19 +59,22 @@ grails.exceptionresolver.params.exclude = ['password']
 // enable query caching by default
 grails.hibernate.cache.queries = true
 
+//Maximum number of videos listed in the dedicated view
+maxvideosnumber = 200
+
 // set per-environment serverURL stem for creating absolute links
 environments {
     development {
         grails.logging.jul.usebridge = true
 		
 		//dir where temp zip are created
-		temp.dir = /C:\workspaces\multimediaApp_workspace\multimediaApp\web-app\resources/
+		temp.dir = "/home/mickado/workspaces/intellij/multimediaApp/web-app/resources"
 		
 		//Dir where audio files are stored
-		my.files.dir = /C:\testMultimediaAppli\audio/
+		my.files.dir = "/home/mickado/Musique"
 		
 		//Dir where video files are stored
-		my.files.videos = /C:\testMultimediaAppli\video/
+		my.files.videos = "/home/mickado/Vidéos"
 		
 		//min free space to create the archives (in GigaBytes)
 		min.free.space = 0.5

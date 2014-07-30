@@ -27,7 +27,7 @@ class VideoBeanController {
 	 * @return
 	 */
     def list(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+        params.max = max ?: grailsApplication.config.maxvideosnumber
 		
         [videoBeanInstanceList: videoBeanService.filteredVideoPagedResultList(params), videoBeanInstanceTotal: VideoBean.count()]
     }
@@ -45,7 +45,7 @@ class VideoBeanController {
 		
 		log.info("${user.username} Accessed Videos list")
 		
-		params.max = max ?: 100
+		params.max = max ?: grailsApplication.config.maxvideosnumber
 		
 		[videoBeanInstanceList: videoBeanService.filteredVideoPagedResultList(params), videoBeanInstanceTotal: VideoBean.count()]
 	}
