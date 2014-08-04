@@ -21,4 +21,4 @@ Keep album list in session in case of second Audio view open ??
 Please Wait ... Message in Audio section
 ANgular JS views rebuild
 Find / search feature in video section
-MickaRatings ;)
+Changer order of the movies
